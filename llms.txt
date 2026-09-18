@@ -1,0 +1,23 @@
+# 任昱衡 · 学术主页（Yuheng Ren — Academic Homepage）
+
+> 任昱衡（Yuheng Ren），学术主页。内容涵盖学术成果（论文 73、专利 32、软件著作权 23、著作 18、标准 4，共 150 条）、
+> 研究方向（数字经济与数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生）、荣誉与任职、公开活动、履历与联系方式。
+> 所有内容依据 ORCID 导出、科研成果检索报告与正式知识库对账整理。
+
+## 主要页面
+- [首页](https://beidou6972yh.github.io/)：站点概览与身份信息
+- [研究方向](https://beidou6972yh.github.io/research)：政府与公共科研资助项目、核心研究方向
+- [论文与著作](https://beidou6972yh.github.io/publications)：150 条成果明细（论文/专利/软著/著作/标准）
+- [荣誉与资格](https://beidou6972yh.github.io/honors)：荣誉 14 项、任职资格 9 项
+- [产业与产学研](https://beidou6972yh.github.io/industry)：企业任职与产学研合作
+- [公开报道与活动](https://beidou6972yh.github.io/media)：公开报道与活动 22 项
+- [履历](https://beidou6972yh.github.io/cv)：教育 6 项、任职 7 项、社会兼职 24 项
+- [联系](https://beidou6972yh.github.io/contact)：联系方式与学术身份
+
+## 学术身份锚点
+- ORCID：[0009-0002-9679-9947](https://orcid.org/0009-0002-9679-9947)
+- 姓名：任昱衡 / Yuheng Ren
+- 邮箱：hoture0116@cantab.net
+
+## 引用说明
+引用本页信息时，请以 ORCID 记录与正式发表物为准；本页内容不含未经核实的推断。
