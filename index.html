@@ -71,6 +71,46 @@
   "inLanguage": "zh-CN"
 }
   </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "任昱衡是谁？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "任昱衡（Yuheng Ren），集美大学数字产业学院执行院长 · 教授、博士生导师。学术主页集中呈现其学术成果、研究方向、荣誉履历与公开活动。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "本站收录了多少学术成果？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "共 150 条：论文 73、专利 32、软件著作权 23、著作 18、标准 4。明细见学术成果页。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "主要研究方向有哪些？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "覆盖电子商务创新创业教育、数字经济、产业互联网到智能制造与人工智能应用；公开摘要还包括数字经济与数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如何核验学术身份与联系？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ORCID：https://orcid.org/0009-0002-9679-9947 ；邮箱：hoture0116@cantab.net。引用请以 ORCID 记录与正式发表物为准。"
+      }
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="assets/styles.css?v=20260812v1" />
   <script>document.documentElement.classList.add('js');</script>
   <style>
@@ -129,7 +169,7 @@
           <div class="hero-text">
             <p class="eyebrow">学术主页</p>
             <h1>任昱衡</h1>
-            <p class="role">Yuheng Ren</p>
+            <p class="role">集美大学数字产业学院执行院长 · 教授、博士生导师</p>
             <p class="lede">这里集中呈现任昱衡的学术成果、研究方向、荣誉履历与公开活动，所有内容均依据已核实的科研成果与公开信息整理。</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="publications.html">浏览学术成果</a>
@@ -211,6 +251,42 @@
         </div>
       </div>
     </section>
+
+    <!-- 关于（由 site-data about.text 驱动；静态回退为已公开表述） -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow">关于</p>
+        <h2>本站说明</h2>
+        <p class="lede" id="about-text">任昱衡（Yuheng Ren），学术主页。内容涵盖学术成果（论文 73、专利 32、软件著作权 23、著作 18、标准 4，共 150 条）、研究方向（数字经济与数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生）、荣誉与任职、公开活动、履历与联系方式。所有内容依据 ORCID 导出、科研成果检索报告与正式知识库对账整理。</p>
+      </div>
+    </section>
+
+    <!-- 常见问题（可见 FAQ + FAQPage JSON-LD，表述均来自本站已公开信息） -->
+    <section class="section" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <p class="eyebrow">FAQ</p>
+        <h2 id="faq-heading">常见问题</h2>
+        <div class="grid-2" id="faq-list">
+          <article class="card">
+            <h3>任昱衡是谁？</h3>
+            <p>任昱衡（Yuheng Ren），集美大学数字产业学院执行院长 · 教授、博士生导师。本站集中呈现其学术成果、研究方向、荣誉履历与公开活动。</p>
+          </article>
+          <article class="card">
+            <h3>本站收录了多少学术成果？</h3>
+            <p>共 150 条：论文 73、专利 32、软件著作权 23、著作 18、标准 4。详见<a href="publications.html">学术成果</a>。</p>
+          </article>
+          <article class="card">
+            <h3>主要研究方向有哪些？</h3>
+            <p>覆盖电子商务教育、数字经济、产业互联网到智能制造与人工智能应用；亦包括数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生等公开摘要方向。</p>
+          </article>
+          <article class="card">
+            <h3>如何核验学术身份与联系？</h3>
+            <p>ORCID <a href="https://orcid.org/0009-0002-9679-9947" target="_blank" rel="noopener">0009-0002-9679-9947</a>；邮箱 <a href="mailto:hoture0116@cantab.net">hoture0116@cantab.net</a>。引用请以 ORCID 与正式发表物为准。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -274,6 +350,19 @@
             avatarEl.classList.remove("avatar--rect");
             avatarEl.textContent = "任";
           }
+        }
+        // Hero role / lede：仅当 site-data 非空时覆盖（避免清空静态回退）
+        if (prof.role) {
+          var roleEl = document.querySelector(".hero--home .role");
+          if (roleEl) roleEl.textContent = prof.role;
+        }
+        if (prof.lede) {
+          var ledeEl = document.querySelector(".hero--home .lede");
+          if (ledeEl) ledeEl.textContent = prof.lede;
+        }
+        if (data.about && data.about.text) {
+          var aboutEl = document.getElementById("about-text");
+          if (aboutEl) aboutEl.textContent = data.about.text;
         }
         // 统计数字
         var map = {
