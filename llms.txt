@@ -1,18 +1,20 @@
 # 任昱衡 · 学术主页（Yuheng Ren — Academic Homepage）
 
+> **任昱衡 — 专注数字经济与产业 AI 应用的学者（IET 会士）**。成果 150 项（论文 73、专利 32、软著 23、著作 18、标准 4）。
+
 > 任昱衡（Yuheng Ren），学术主页。内容涵盖学术成果（论文 73、专利 32、软件著作权 23、著作 18、标准 4，共 150 条）、
 > 研究方向（数字经济与数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生）、荣誉与任职、公开活动、履历与联系方式。
 > 所有内容依据 ORCID 导出、科研成果检索报告与正式知识库对账整理。
 
 ## 主要页面
-- [首页](https://ryh.ceces.cn/)：站点概览与身份信息
-- [研究方向](https://ryh.ceces.cn/research)：政府与公共科研资助项目、核心研究方向
-- [论文与著作](https://ryh.ceces.cn/publications)：150 条成果明细（论文/专利/软著/著作/标准）
-- [荣誉与资格](https://ryh.ceces.cn/honors)：荣誉 14 项、任职资格 9 项
-- [产业与产学研](https://ryh.ceces.cn/industry)：企业任职与产学研合作
-- [公开报道与活动](https://ryh.ceces.cn/media)：公开报道与活动 22 项
-- [履历](https://ryh.ceces.cn/cv)：教育 6 项、任职 7 项、社会兼职 24 项
-- [联系](https://ryh.ceces.cn/contact)：联系方式与学术身份
+- [首页](http://ryh.ceces.cn:9000/)：站点概览与身份信息
+- [研究方向](http://ryh.ceces.cn:9000/research.html)：政府与公共科研资助项目、核心研究方向
+- [论文与著作](http://ryh.ceces.cn:9000/publications.html)：150 条成果明细（论文/专利/软著/著作/标准）
+- [荣誉与资格](http://ryh.ceces.cn:9000/honors.html)：荣誉 14 项、任职资格 9 项
+- [产业与产学研](http://ryh.ceces.cn:9000/industry.html)：企业任职与产学研合作
+- [公开报道与活动](http://ryh.ceces.cn:9000/media.html)：公开报道与活动 22 项
+- [履历](http://ryh.ceces.cn:9000/cv.html)：教育 6 项、任职 7 项、社会兼职 24 项
+- [联系](http://ryh.ceces.cn:9000/contact.html)：联系方式与学术身份
 
 ## 学术身份锚点
 - ORCID：[0009-0002-9679-9947](https://orcid.org/0009-0002-9679-9947)
