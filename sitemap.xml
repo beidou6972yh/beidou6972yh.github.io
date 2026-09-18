@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://beidou6972yh.github.io/</loc><lastmod>2026-09-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://beidou6972yh.github.io/research</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://beidou6972yh.github.io/publications</loc><lastmod>2026-09-19</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://beidou6972yh.github.io/honors</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://beidou6972yh.github.io/industry</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://beidou6972yh.github.io/media</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://beidou6972yh.github.io/cv</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://beidou6972yh.github.io/contact</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://beidou6972yh.github.io/llms.txt</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>http://ryh.ceces.cn:9000/</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>http://ryh.ceces.cn:9000/research.html</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://ryh.ceces.cn:9000/publications.html</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://ryh.ceces.cn:9000/honors.html</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://ryh.ceces.cn:9000/industry.html</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://ryh.ceces.cn:9000/media.html</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://ryh.ceces.cn:9000/cv.html</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://ryh.ceces.cn:9000/contact.html</loc><lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
