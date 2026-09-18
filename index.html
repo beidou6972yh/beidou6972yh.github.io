@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>任昱衡 · 学术主页</title>
+  <meta name="description" content="任昱衡（Yuheng Ren）学术主页：学术成果、研究方向、荣誉履历与公开活动集中展示，内容均依据已核实的科研成果与公开信息整理。" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260812v1" />
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    /* 首页专属增强（沿用 styles.css 令牌，不引入新依赖） */
+    .hero--home { position: relative; overflow: hidden; }
+    .hero--home::before {
+      content: ""; position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(60% 120% at 85% -10%, rgba(176,133,52,.12), transparent 60%),
+        radial-gradient(50% 100% at 0% 110%, rgba(21,50,75,.06), transparent 55%);
+    }
+    .hero--home .container { position: relative; z-index: 1; }
+    .hero--home .hero-text { min-width: 0; }
+    .hero--home .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .78rem; margin: 0 0 .5rem; }
+    .hero--home h1 { font-size: var(--fs-display); margin: 0; line-height: 1.05; }
+    .hero--home .role { font-size: 1.2rem; color: var(--accent); font-weight: 700; margin: .35rem 0 1rem; letter-spacing: .02em; }
+    .hero--home .lede { color: var(--ink-soft); max-width: 62ch; margin: 0 0 1.6rem; }
+    .section--stats { padding-top: clamp(8px, 2vw, 24px); padding-bottom: clamp(24px, 4vw, 48px); border-top: 0; }
+    .stats .num { font-variant-numeric: tabular-nums; }
+    .research-empty { color: var(--muted); font-size: var(--fs-small); padding: 8px 0; }
+    .module-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--surface-2); color: var(--primary); font-family: var(--serif); font-weight: 700; font-size: 1.1rem; flex: none; }
+    .module-card { display: flex; flex-direction: column; gap: 4px; }
+    .module-card .module-icon { margin-bottom: 8px; }
+    .module-card h3 { margin: 0; }
+    .module-card p { margin: 0; color: var(--ink-soft); font-size: var(--fs-small); }
+    .module-card .arrow { margin-top: 8px; color: var(--accent); font-size: .85rem; font-weight: 600; }
+    .nav-admin { background: var(--accent) !important; color: #fff !important; }
+    .nav-admin:hover { background: var(--accent-soft) !important; color: var(--primary-700) !important; }
+    .home-foot-note { color: #aebccb; font-size: .82rem; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="任昱衡学术主页"><span class="cn">任昱衡</span><span class="en">Yuheng Ren</span></a>
+      <button class="nav-toggle" aria-label="展开导航" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html" aria-current="page">首页</a></li>
+        <li><a href="research.html">研究</a></li>
+        <li><a href="industry.html">产业</a></li>
+        <li><a href="publications.html">成果</a></li>
+        <li><a href="honors.html">荣誉</a></li>
+        <li><a href="media.html">动态</a></li>
+        <li><a href="cv.html">履历</a></li>
+        <li><a href="contact.html">联系</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero hero--home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="avatar" aria-hidden="true">任</div>
+          <div class="hero-text">
+            <p class="eyebrow">学术主页</p>
+            <h1>任昱衡</h1>
+            <p class="role">Yuheng Ren</p>
+            <p class="lede">这里集中呈现任昱衡的学术成果、研究方向、荣誉履历与公开活动，所有内容均依据已核实的科研成果与公开信息整理。</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="publications.html">浏览学术成果</a>
+              <a class="btn btn-ghost" href="research.html">查看研究方向</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 数据看板 -->
+    <section class="section section--stats">
+      <div class="container">
+        <div class="stats" id="stats">
+          <div class="stat"><div class="num" data-key="publications">150</div><div class="label">论文 · 专利 · 著作等</div></div>
+          <div class="stat"><div class="num" data-key="honors">23</div><div class="label">荣誉与任职</div></div>
+          <div class="stat"><div class="num" data-key="media">22</div><div class="label">公开报道与活动</div></div>
+          <div class="budges" style="display:none"></div>
+          <div class="stat"><div class="num" data-key="research_directions">7</div><div class="label">研究方向</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 研究方向 -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">研究方向</p>
+        <h2>主要研究领域</h2>
+        <p class="sub">覆盖电子商务教育、数字经济、产业互联网到智能制造与人工智能应用。</p>
+        <div class="grid-2" id="research-grid">
+          <p class="research-empty">正在加载研究方向…</p>
+        </div>
+        <p class="more" style="margin-top:18px"><a class="btn btn-ghost" href="research.html">查看完整研究方向 →</a></p>
+      </div>
+    </section>
+
+    <!-- 内容导航 -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">内容导航</p>
+        <h2>浏览全部内容</h2>
+        <div class="grid-3" id="module-grid">
+          <a class="card module-card" href="publications.html">
+            <span class="module-icon">果</span>
+            <h3>学术成果</h3>
+            <p>论文、专利、软著、著作与标准，共 150 条。</p>
+            <span class="arrow">前往 →</span>
+          </a>
+          <a class="card module-card" href="research.html">
+            <span class="module-icon">研</span>
+            <h3>研究方向</h3>
+            <p>电子商务、数字经济、产业互联网等七大领域。</p>
+            <span class="arrow">前往 →</span>
+          </a>
+          <a class="card module-card" href="industry.html">
+            <span class="module-icon">产</span>
+            <h3>产业实践</h3>
+            <p>产业互联网、智能制造与数字化转型实践。</p>
+            <span class="arrow">前往 →</span>
+          </a>
+          <a class="card module-card" href="honors.html">
+            <span class="module-icon">誉</span>
+            <h3>荣誉与任职</h3>
+            <p>专业共同体认可、执业资格与社会任职。</p>
+            <span class="arrow">前往 →</span>
+          </a>
+          <a class="card module-card" href="media.html">
+            <span class="module-icon">媒</span>
+            <h3>公开报道</h3>
+            <p>访谈、学术活动与媒体公开报道汇总。</p>
+            <span class="arrow">前往 →</span>
+          </a>
+          <a class="card module-card" href="cv.html">
+            <span class="module-icon">履</span>
+            <h3>教育与履历</h3>
+            <p>教育背景、任职经历与社会兼职。</p>
+            <span class="arrow">前往 →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="color:#fff"><span class="cn" style="color:#fff">任昱衡</span><span class="en" style="color:#aebccb">Yuheng Ren</span></div>
+        <p class="home-foot-note">学术成果、研究方向、荣誉履历与公开活动的集中展示。</p>
+      </div>
+      <div class="sameas" id="foot-links">
+        <a href="mailto:hoture0116@cantab.net">邮箱</a>
+        <a href="https://orcid.org/0009-0002-9679-9947" target="_blank" rel="noopener">ORCID</a>
+        <a href="contact.html">更多联系方式</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js?v=20260812v3"></script>
+  <script>
+    // 移动端导航折叠（site.js 未覆盖，此处自包含）
+    (function () {
+      var toggle = document.querySelector(".nav-toggle");
+      var menu = document.getElementById("nav-menu");
+      if (toggle && menu) {
+        toggle.addEventListener("click", function () {
+          var open = menu.classList.toggle("open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        menu.addEventListener("click", function (e) {
+          if (e.target.tagName === "A") {
+            menu.classList.remove("open");
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+    })();
+
+    // 数据驱动填充（渐进增强：失败则保持 HTML 默认真实数字）
+    (function () {
+      function fill(data) {
+        if (!data) return;
+        // 首页 Hero 头像：有上传照片则矩形展示，否则保留「任」
+        var prof = (data && data.profile) || {};
+        var av = prof.avatar;
+        var avatarEl = document.querySelector(".hero--home .avatar");
+        if (avatarEl) {
+          if (av) {
+            avatarEl.classList.add("avatar--rect");
+            avatarEl.setAttribute("aria-hidden", "false");
+            avatarEl.innerHTML = "";
+            var im = document.createElement("img");
+            im.className = "avatar-img";
+            im.src = av;
+            im.alt = "任昱衡";
+            im.onerror = function () {
+              avatarEl.classList.remove("avatar--rect");
+              avatarEl.textContent = "任";
+              avatarEl.setAttribute("aria-hidden", "true");
+            };
+            avatarEl.appendChild(im);
+          } else {
+            avatarEl.classList.remove("avatar--rect");
+            avatarEl.textContent = "任";
+          }
+        }
+        // 统计数字
+        var map = {
+          publications: (data.publications || []).length,
+          honors: (data.honors || []).length,
+          media: (data.media || []).length,
+          research_directions: (data.research_directions || []).length
+        };
+        Object.keys(map).forEach(function (k) {
+          var el = document.querySelector('#stats .num[data-key="' + k + '"]');
+          if (el && map[k]) el.textContent = map[k];
+        });
+        // 研究方向卡片
+        var grid = document.getElementById("research-grid");
+        var dirs = data.research_directions || [];
+        if (grid && dirs.length) {
+          grid.innerHTML = "";
+          dirs.forEach(function (d) {
+            var a = document.createElement("div");
+            a.className = "card";
+            a.innerHTML =
+              '<div class="idx">' + (d.idx || "") + '</div>' +
+              '<h3>' + (d.title || "") + '</h3>' +
+              '<p>' + (d.desc || "") + '</p>';
+            grid.appendChild(a);
+          });
+        }
+      }
+      try {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "assets/site-data.json", true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            try { fill(JSON.parse(xhr.responseText)); } catch (e) {}
+          }
+        };
+        xhr.send();
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
