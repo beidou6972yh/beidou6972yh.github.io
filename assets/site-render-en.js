@@ -299,9 +299,27 @@
         row.appendChild(el("div", "date", tk(sectionName, it, dateField).value));
         row.appendChild(el("h3", null, tk(sectionName, it, "title").value));
         var det = tk(sectionName, it, detailField).value;
-        (Array.isArray(det) ? det : [det]).filter(Boolean).forEach(function (p) {
+        var lines = (Array.isArray(det) ? det : [det]).filter(Boolean);
+        lines.forEach(function (p) {
           row.appendChild(hl ? selfP(null, fixText(p)) : el("p", null, fixText(p)));   // 同上：先套内容更正
         });
+        /* 源详情行补回（2026-09-19 核对发现，英文荣誉页信息缺失的根因）：
+         * 中文页的「完成人名单 / 证书编号 / 完成单位」等行来自 data.details_json，
+         * 而英文层此前只取 description **一行** ⇒ 英文荣誉页比中文少 2/3 的内容（实测：中文 3 条含本人姓名，英文只 1 条）。
+         * 按站点既有规则「未译内容回退中文」补回，并显式标 lang="zh-CN"（译文补上后 tk() 会自动改显英文）。 */
+        if (hl) {
+          // 已在页面上出现过的文本（译文行 + 该行译文所对应的中文原文）都不再重复补
+          var shown = lines.join("\u0000") + "\u0000" + String(it[detailField] || "") + "\u0000" + String(CORE.norm ? it[detailField] || "" : "");
+          var src = [];
+          try { src = JSON.parse(it.details_json || "[]"); } catch (e) { src = []; }
+          if (!Array.isArray(src)) src = [src];
+          src.forEach(function (line) {
+            if (!line || shown.indexOf(line) > -1) return;
+            var p = selfP(null, fixText(line));
+            p.setAttribute("lang", "zh-CN");
+            row.appendChild(p);
+          });
+        }
         target.tl.appendChild(row);
       });
       setCount(target.h2, list.length);
