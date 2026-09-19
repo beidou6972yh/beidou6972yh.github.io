@@ -182,6 +182,32 @@
     return t;
   }
 
+  /* ---------- 年份补录（2026-09-19 著作版本核实所得；DB 补录后应删除本表） ----------
+   * 由来：6 本著作在库中 year 为空 ⇒ 前台年份徽章空白、排序被当成最旧。
+   * 年份来源：版权页 CIP / 当当按 ISBN 检索 / 孔夫子条目 三源交叉（见 成果核对报告 第十九节）。
+   * 均为「第 1 版」，未发现第 2 版/修订版。 */
+  var YEAR_FIX = {
+    "HTML+CSS网页设计详解": "2013",
+    "中文版Dreamweaver CC+Flash CC+Photoshop CC网页设计标准教程": "2014",
+    "众筹模式": "2016",
+    "大数据营销从入门到精通": "2016",
+    "微信公众号运营全攻略": "2017",
+    "微商": "2016",
+    "A Detailed Guide to HTML+CSS Web Design": "2013",
+    "Standard Course on Web Design with Chinese Versions of Dreamweaver CC, Flash CC and Photoshop CC": "2014",
+    "The Crowdfunding Model": "2016",
+    "Big Data Marketing from Beginner to Mastery": "2016",
+    "A Complete Guide to Operating a WeChat Official Account": "2017",
+    "WeChat Business": "2016"
+  };
+  function yearOf(p) {
+    var y = p && (p.year_raw || p.year);
+    if (y) return y;
+    var t = String((p && p.title) || "").trim();
+    for (var k in YEAR_FIX) if (t === k || t.indexOf(k) > -1) return YEAR_FIX[k];
+    return "";
+  }
+
   function setCount(h2, n) {
     if (!h2) return;
     h2.textContent = h2.textContent.replace(/\(\d+\)/, "(" + n + ")");
@@ -237,7 +263,7 @@
       items.forEach(function (p) {
         var art = el("article", "pub");
         var meta = el("div", "meta");
-        meta.appendChild(el("span", "badge badge-year", p.year_raw || p.year || ""));
+        meta.appendChild(el("span", "badge badge-year", yearOf(p)));
         meta.appendChild(el("span", "badge badge-type", TYPE_EN[s.type] || "Item"));
         art.appendChild(meta);
         art.appendChild(el("h3", null, tk("pub", p, "title").value));
