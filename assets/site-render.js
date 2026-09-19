@@ -81,6 +81,16 @@
     return p;
   }
 
+  /* ---------- DOI 健壮性（2026-09-19 实测线上脏数据后加） ----------
+   * 线上 papers 表里有 2 条的 doi 字段被塞了字面文本「查看原文」（导入时抓错字段）。
+   * 若照原样渲染，会出现「DOI 查看原文 ↗」这种坏标签（英文页实测已命中 2 处）。
+   * ⇒ 只有真正长成 DOI 的值才当 DOI 用；否则退回按 url 显示「查看原文」。
+   * 这是**渲染层兜底**：数据本身的脏值仍需后台更正（等 /admin 账号）。 */
+  function cleanDoi(v) {
+    var s = String(v == null ? "" : v).trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
+    return /^10\.\d{4,9}\/\S+$/.test(s) ? s : "";
+  }
+
   // ---------- publications.html：5 类成果重建 ----------
   // 修正（2026-09-19）：原实现是「只要静态页里已有 article.pub，就只同步计数、不重建」，
   // 后果是**后台新增/删除成果时页面根本不跟着变** —— 计数变成「标准（5）」而卡片还是 4 张，
@@ -117,13 +127,21 @@
     body.appendChild(el("h3", null, esc(p.title || "")));
     if (p.authors) body.appendChild(selfP("authors", p.authors));
     if (p.venue) body.appendChild(el("p", "venue", esc(p.venue)));
-    if (p.doi) {
+    var realDoi = cleanDoi(p.doi);
+    if (realDoi) {
       var dp = el("p", "doi");
-      var a = el("a", null, "DOI " + esc(p.doi) + " ↗");
-      a.href = p.url || ("https://doi.org/" + esc(p.doi));
+      var a = el("a", null, "DOI " + esc(realDoi) + " ↗");
+      a.href = p.url || ("https://doi.org/" + esc(realDoi));
       a.target = "_blank"; a.rel = "noopener";
       dp.appendChild(a);
       body.appendChild(dp);
+    } else if (p.url) {
+      // doi 字段不是真 DOI（脏数据/空）但有条目原文地址 ⇒ 按「查看原文」渲染，与烘焙页写法一致
+      var up = el("p", "doi");
+      var ua = el("a", null, "查看原文 ↗");
+      ua.href = p.url; ua.target = "_blank"; ua.rel = "noopener";
+      up.appendChild(ua);
+      body.appendChild(up);
     }
     art.appendChild(body);
     return art;

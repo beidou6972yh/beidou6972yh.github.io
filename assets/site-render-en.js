@@ -118,6 +118,13 @@
     return p;
   }
 
+  /** DOI 健壮性：线上有 2 条 papers 的 doi 字段被塞了字面文本「查看原文」（导入抓错字段），
+   *  照原样渲染会在英文页出现「DOI 查看原文 ↗」的坏标签（实测已命中）⇒ 非真 DOI 不当 DOI 用。 */
+  function cleanDoi(v) {
+    var s = String(v == null ? "" : v).trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
+    return /^10\.\d{4,9}\/\S+$/.test(s) ? s : "";
+  }
+
   function setCount(h2, n) {
     if (!h2) return;
     h2.textContent = h2.textContent.replace(/\(\d+\)/, "(" + n + ")");
@@ -179,13 +186,21 @@
         art.appendChild(el("h3", null, tk("pub", p, "title").value));
         if (p.authors) art.appendChild(selfP("authors", tk("pub", p, "authors").value));
         if (p.venue) art.appendChild(el("p", "venue", tk("pub", p, "venue").value));
-        if (p.doi) {
+        var realDoi = cleanDoi(p.doi);
+        if (realDoi) {
           var dp = el("p", "doi");
-          var a = el("a", null, "DOI " + p.doi + " ↗");
-          a.href = p.url || ("https://doi.org/" + p.doi);
+          var a = el("a", null, "DOI " + realDoi + " ↗");
+          a.href = p.url || ("https://doi.org/" + realDoi);
           a.target = "_blank"; a.rel = "noopener";
           dp.appendChild(a);
           art.appendChild(dp);
+        } else if (p.url) {
+          // doi 字段不是真 DOI（脏数据）但有条目原文地址 ⇒ 显示原文链接，别把脏值当 DOI 名
+          var up = el("p", "doi");
+          var ua = el("a", null, "View original ↗");
+          ua.href = p.url; ua.target = "_blank"; ua.rel = "noopener";
+          up.appendChild(ua);
+          art.appendChild(up);
         }
         s.box.appendChild(art);
       });
