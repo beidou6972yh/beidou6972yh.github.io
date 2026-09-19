@@ -191,6 +191,14 @@
     return TITLE_FIX[t] || t;
   }
 
+  /* ---------- 出处补正（2026-09-19 知网报告核对所得；DB 补录后应删除本表） ----------
+   * 复旦那条是**硕士**学位论文（知网报告：复旦大学·硕士·2010·导师赵卫东），
+   * 站点原写「复旦大学 · 学位论文」不含级别，补明以示与博士区分。 */
+  var VENUE_FIX = {
+    "基于Web Services的中船集团电子采购平台开发": "复旦大学 · 硕士学位论文"
+  };
+  function venueOf(p) { return VENUE_FIX[String((p && p.title) || "")] || String((p && p.venue) || ""); }
+
   // ---------- publications.html：5 类成果重建 ----------
   // 修正（2026-09-19）：原实现是「只要静态页里已有 article.pub，就只同步计数、不重建」，
   // 后果是**后台新增/删除成果时页面根本不跟着变** —— 计数变成「标准（5）」而卡片还是 4 张，
@@ -226,7 +234,7 @@
     body.appendChild(meta);
     body.appendChild(el("h3", null, esc(titleOf(p))));
     if (p.authors) body.appendChild(selfP("authors", p.authors));
-    if (p.venue) body.appendChild(el("p", "venue", esc(p.venue)));
+    if (p.venue) body.appendChild(el("p", "venue", esc(venueOf(p))));
     var realDoi = cleanDoi(p.doi);
     if (realDoi) {
       var dp = el("p", "doi");

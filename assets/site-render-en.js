@@ -220,6 +220,14 @@
     return TITLE_FIX[t] || t;
   }
 
+  /* ---------- 出处补正（2026-09-19 知网报告核对所得；DB 补录后应删除本表） ----------
+   * 复旦那条是**硕士**学位论文（知网报告：复旦大学·硕士·2010·导师赵卫东），
+   * 站点原写「复旦大学 · 学位论文」不含级别，补明以示与博士区分。 */
+  var VENUE_FIX = {
+    "基于Web Services的中船集团电子采购平台开发": "复旦大学 · 硕士学位论文"
+  };
+  function venueOf(p) { return VENUE_FIX[String((p && p.title) || "")] || String((p && p.venue) || ""); }
+
   function setCount(h2, n) {
     if (!h2) return;
     h2.textContent = h2.textContent.replace(/\(\d+\)/, "(" + n + ")");
@@ -280,7 +288,7 @@
         art.appendChild(meta);
         art.appendChild(el("h3", null, TITLE_FIX[p.title] || tk("pub", p, "title").value));
         if (p.authors) art.appendChild(selfP("authors", tk("pub", p, "authors").value));
-        if (p.venue) art.appendChild(el("p", "venue", tk("pub", p, "venue").value));
+        if (p.venue) art.appendChild(el("p", "venue", VENUE_FIX[p.title] || tk("pub", p, "venue").value));
         var realDoi = cleanDoi(p.doi);
         if (realDoi) {
           var dp = el("p", "doi");

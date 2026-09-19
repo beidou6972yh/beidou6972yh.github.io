@@ -601,3 +601,9 @@ main > .section:nth-child(even) { background: var(--surface-2); }
   line-height: 1.6;
 }
 .retract-note a { color: #6b4a12; font-weight: 700; text-decoration: underline; }
+
+/* 科研资助列表（2026-09-19 新增）：刻意不用 .pub 类，避免被 site-render.js#renderProjects 的全页重建清掉 */
+.grant-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .6rem; }
+.grant-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: .7rem .95rem; }
+.grant-list li strong { display: block; font-weight: 650; color: var(--primary); }
+.grant-list .grant-meta { color: var(--muted); font-size: var(--fs-small); }
