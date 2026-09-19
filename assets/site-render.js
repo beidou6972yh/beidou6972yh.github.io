@@ -91,6 +91,33 @@
     return /^10\.\d{4,9}\/\S+$/.test(s) ? s : "";
   }
 
+  /* ---------- 已撤稿论文提示（2026-09-19 核对发现，必须显式标注）----------
+   * 理由：站上若把**已被出版方撤稿**的文章当普通成果展示，既不透明，也会被 AI 引擎/学术索引
+   *      先于本站披露（显得像隐瞒）。规范做法是保留条目 + 明示撤稿。
+   * 出处（实测）：Springer《Optical and Quantum Electronics》撤稿说明
+   *   DOI 10.1007/s11082-024-07659-y（2024-10-08）；Crossref 该记录 update-to 指向原文
+   *   10.1007/s11082-023-05720-w（type=retraction, source=publisher）。
+   * key 一律用小写 DOI。 */
+  var RETRACTED = {
+    "10.1007/s11082-023-05720-w": { date: "2024-10-08", noteDoi: "10.1007/s11082-024-07659-y" }
+  };
+  function retractNoteFor(doi) {
+    var k = String(doi == null ? "" : doi).trim().toLowerCase().replace(/^https?:\/\/(dx\.)?doi\.org\//, "");
+    return RETRACTED[k] || null;
+  }
+  /** 生成撤稿提示行（含指向 Retraction Note 的链接） */
+  function retractNoteEl(doi) {
+    var r = retractNoteFor(doi);
+    if (!r) return null;
+    var p = el("p", "retract-note", null);
+    p.appendChild(document.createTextNode("⚠️ 该文已被出版方撤稿（Retraction Note）：" + r.date + "（"));
+    var a = el("a", null, r.noteDoi);
+    a.href = "https://doi.org/" + r.noteDoi; a.target = "_blank"; a.rel = "noopener";
+    p.appendChild(a);
+    p.appendChild(document.createTextNode("）"));
+    return p;
+  }
+
   // ---------- publications.html：5 类成果重建 ----------
   // 修正（2026-09-19）：原实现是「只要静态页里已有 article.pub，就只同步计数、不重建」，
   // 后果是**后台新增/删除成果时页面根本不跟着变** —— 计数变成「标准（5）」而卡片还是 4 张，
@@ -143,6 +170,8 @@
       up.appendChild(ua);
       body.appendChild(up);
     }
+    var rn = retractNoteEl(p.doi);          // 已撤稿文章：显式标注（不删不藏）
+    if (rn) body.appendChild(rn);
     art.appendChild(body);
     return art;
   }

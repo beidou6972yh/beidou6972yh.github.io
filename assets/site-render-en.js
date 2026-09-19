@@ -120,6 +120,28 @@
 
   /** DOI 健壮性：线上有 2 条 papers 的 doi 字段被塞了字面文本「查看原文」（导入抓错字段），
    *  照原样渲染会在英文页出现「DOI 查看原文 ↗」的坏标签（实测已命中）⇒ 非真 DOI 不当 DOI 用。 */
+
+  /* ---------- 已撤稿文章提示（2026-09-19 核对发现，必须显式标注）----------
+   * 出处：Springer《Optical and Quantum Electronics》撤稿说明 10.1007/s11082-024-07659-y（2024-10-08）；
+   * Crossref 该记录 update-to 指向原文 10.1007/s11082-023-05720-w（type=retraction, source=publisher）。*/
+  var RETRACTED = {
+    "10.1007/s11082-023-05720-w": { date: "2024-10-08", noteDoi: "10.1007/s11082-024-07659-y" }
+  };
+  function retractNoteFor(doi) {
+    var k = String(doi == null ? "" : doi).trim().toLowerCase().replace(/^https?:\/\/(dx\.)?doi\.org\//, "");
+    return RETRACTED[k] || null;
+  }
+  function retractNoteEl(doi) {
+    var r = retractNoteFor(doi);
+    if (!r) return null;
+    var p = el("p", "retract-note", null);
+    p.appendChild(document.createTextNode("⚠️ Retracted by the publisher (Retraction Note): " + r.date + " ("));
+    var a = el("a", null, r.noteDoi);
+    a.href = "https://doi.org/" + r.noteDoi; a.target = "_blank"; a.rel = "noopener";
+    p.appendChild(a);
+    p.appendChild(document.createTextNode(")"));
+    return p;
+  }
   function cleanDoi(v) {
     var s = String(v == null ? "" : v).trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
     return /^10\.\d{4,9}\/\S+$/.test(s) ? s : "";
@@ -202,6 +224,8 @@
           up.appendChild(ua);
           art.appendChild(up);
         }
+        var rn = retractNoteEl(p.doi);      // retracted article: state it explicitly
+        if (rn) art.appendChild(rn);
         s.box.appendChild(art);
       });
       setCount(s.h2, items.length);

@@ -587,3 +587,17 @@ main > .section:nth-child(even) { background: var(--surface-2); }
 }
 .tl-item .self-name { padding: 0 .18em; }
 @media print { .self-name { background-color: #f2e2b0; color: #000; } }
+
+/* 撤稿提示（2026-09-19 核对发现：站上有一条被出版方撤稿的文章，必须显式标注）
+   规格：与站点古铜金强调色同族的警示底纹 + 深棕字；**不用刺眼的红**，不加图标外框，
+   与 .self-name 的姓名高亮区分开（那条是姓名底纹，这条是整条提示行）。*/
+.retract-note {
+  margin: .45rem 0 0;
+  padding: .45rem .6rem;
+  background: #fdf3dd;
+  border-left: 3px solid var(--accent);
+  color: #6b4a12;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+.retract-note a { color: #6b4a12; font-weight: 700; text-decoration: underline; }
