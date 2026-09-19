@@ -636,3 +636,7 @@ main > .section:nth-child(even) { background: var(--surface-2); }
 .page-toc a:hover{border-bottom-color:var(--accent)}
 h2[id],section[id]{scroll-margin-top:92px}
 @media (max-width:640px){.page-toc{font-size:.86rem}}
+
+/* 正文行宽（内容层可读性）：中文舒适区约 25–40 字/行，避免 1120px 容器下每行近 70 字 */
+.pub, .tl-item, .record-body, .media-card { max-width: 46em; }
+@media (max-width: 860px){ .pub, .tl-item, .record-body, .media-card { max-width: none; } }
