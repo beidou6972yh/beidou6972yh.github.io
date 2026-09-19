@@ -118,6 +118,20 @@
     return p;
   }
 
+  /* ---------- 外部链接修正（2026-09-19 链接体检发现；数据改不动时在前端兜底） ----------
+   * 只修**技术性错误**（页面路径变更 / 协议与证书问题）；内容已失效的（域名无解析、404、校内限定）
+   * 一律不在此造替代，交哥哥决定换源或删除。
+   * 证据：
+   *  · 鲲鹭官网改版：page1000089 整页 404，文章已移到 page94（article_id 不变，实测 200 且标题与站内条目一致）
+   *  · v.china.com.cn:443 的证书是别人的（CN=www.baishan.com / *.dianping.com）⇒ 浏览器会报证书错误；http 实测 200
+   */
+  var URL_FIX = {
+    "https://www.kunluiot.com/page1000089?article_id=311": "https://www.kunluiot.com/page94?article_id=311",
+    "https://www.kunluiot.com/page1000089?article_id=312": "https://www.kunluiot.com/page94?article_id=312",
+    "https://v.china.com.cn/finance/2017-12/20/content_42002661.htm": "http://v.china.com.cn/finance/2017-12/20/content_42002661.htm"
+  };
+  function fixUrl(u) { return URL_FIX[String(u == null ? "" : u).trim()] || u; }
+
   // ---------- publications.html：5 类成果重建 ----------
   // 修正（2026-09-19）：原实现是「只要静态页里已有 article.pub，就只同步计数、不重建」，
   // 后果是**后台新增/删除成果时页面根本不跟着变** —— 计数变成「标准（5）」而卡片还是 4 张，
@@ -374,7 +388,7 @@
     });
     d.media.forEach(function (it) {
       var card = el("a", "record-card linked");
-      card.href = it.url || "#";
+      card.href = fixUrl(it.url) || "#";
       card.target = "_blank"; card.rel = "noreferrer";
       card.setAttribute("data-type", it.type || "");
       var meta = el("div", "card-meta");
