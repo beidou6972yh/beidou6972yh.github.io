@@ -161,6 +161,22 @@
   };
   function fixUrl(u) { return URL_FIX[String(u == null ? "" : u).trim()] || u; }
 
+  /* ---------- 内容更正清单（2026-09-19 核对所得；DB 更正前在前端兜底） ----------
+   * 每条都必须有权威出处，并注明"DB 更正后应删除本条目"。
+   * · 中国服务业科技创新奖一等奖（第十六届 · 一等奖 · 序号 57）完成人名单：
+   *   官方公告（中国商业联合会 2024-12-25 发布，附件 1《全国服务业科技创新奖获奖名单》）
+   *   为「任昱衡、王学东、…、陈志永、卢凡、倪一铭、董姗姗」，
+   *   站内数据误写为「李昱帆」（站内另有李昱帆，系房地产方向论文作者，属两人名混用）⇒ 更正。
+   *   出处：https://www.cgcc.org.cn/tzgg/2/53495.html （附件 .doc 已存档 快照/获奖名单证据-20260919/） */
+  var DATA_FIX = [
+    ["陈志永、李昱帆、倪一铭", "陈志永、卢凡、倪一铭"]
+  ];
+  function fixText(v) {
+    var t = String(v == null ? "" : v);
+    for (var i = 0; i < DATA_FIX.length; i++) t = t.split(DATA_FIX[i][0]).join(DATA_FIX[i][1]);
+    return t;
+  }
+
   function setCount(h2, n) {
     if (!h2) return;
     h2.textContent = h2.textContent.replace(/\(\d+\)/, "(" + n + ")");
@@ -284,7 +300,7 @@
         row.appendChild(el("h3", null, tk(sectionName, it, "title").value));
         var det = tk(sectionName, it, detailField).value;
         (Array.isArray(det) ? det : [det]).filter(Boolean).forEach(function (p) {
-          row.appendChild(hl ? selfP(null, p) : el("p", null, p));   // 荣誉页：完成人名单/排名行里本人姓名高亮
+          row.appendChild(hl ? selfP(null, fixText(p)) : el("p", null, fixText(p)));   // 同上：先套内容更正
         });
         target.tl.appendChild(row);
       });
