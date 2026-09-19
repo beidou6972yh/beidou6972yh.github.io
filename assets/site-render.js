@@ -297,6 +297,19 @@
 
   // ---------- cv.html：3 分节履历重建 ----------
   function renderCv(d) {
+    // renderCv：把 H2 的（N）与数据同步（2026-09-20 补：此前只有 renderHonors 会同步，
+    //   cv 页计数是硬编码的，数据一增删就漂移 —— 社会兼职 24/26 的不一致即由此暴露）
+    [["任职经历", "任职经历"], ["社会兼职", "社会兼职"], ["教育经历", "教育经历"]].forEach(function (pair) {
+      var heads = document.querySelectorAll("h2");
+      for (var hi = 0; hi < heads.length; hi++) {
+        var ht = heads[hi].textContent || "";
+        if (ht.indexOf(pair[0]) === 0 || ht.indexOf(pair[0] + "（") === 0) {
+          var n = (d.cv || []).filter(function (x) { return (x.section || "") === pair[1]; }).length;
+          if (n) heads[hi].textContent = pair[0] + "（" + n + "）";
+          break;
+        }
+      }
+    });
     if (!d.cv || !d.cv.length) return;
     var SEC_MAP = { "任职经历": 0, "社会兼职": 1, "教育经历": 2 };
     var timelines = document.querySelectorAll("main .timeline");

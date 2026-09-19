@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-20T00:13:20+08:00",
+ "generated_at": "2026-09-20T02:09:43+08:00",
  "profile": {
   "name": "任昱衡",
   "en_name": "Yuheng Ren",
@@ -3276,19 +3276,6 @@
    "date_raw": "现任"
   },
   {
-   "id": 6,
-   "title": "中国商业联合会技术发明奖三等奖",
-   "organization": null,
-   "level": null,
-   "awarded_at": "2026",
-   "description": "获奖项目：面向家居行业的生产制造全域质量 AI 治理系统 · 排名第1 · 证书编号 2025F-3-36-R01",
-   "created_at": "2026-08-11T20:40:37+08:00",
-   "details_json": "[\"获奖项目：面向家居行业的生产制造全域质量 AI 治理系统 · 排名第1 · 证书编号 2025F-3-36-R01\"]",
-   "awarded_at_raw": "2026",
-   "section": "荣誉",
-   "date_raw": "2026"
-  },
-  {
    "id": 1,
    "title": "福建省高等教育教学成果一等奖",
    "organization": null,
@@ -3352,6 +3339,19 @@
    "awarded_at_raw": "2025",
    "section": "荣誉",
    "date_raw": "2025"
+  },
+  {
+   "id": 6,
+   "title": "中国商业联合会技术发明奖三等奖",
+   "organization": null,
+   "level": null,
+   "awarded_at": "2025",
+   "description": "获奖项目：面向家居行业的生产制造全域质量 AI 治理系统 · 排名第1 · 证书编号 2025F-3-36-R01",
+   "created_at": "2026-08-11T20:40:37+08:00",
+   "details_json": "[\"获奖项目：面向家居行业的生产制造全域质量 AI 治理系统 · 排名第1 · 证书编号 2025F-3-36-R01\"]",
+   "awarded_at_raw": "2025 年度（公告 2025-12-29）",
+   "section": "荣誉",
+   "date_raw": "2025 年度（公告 2025-12-29）"
   },
   {
    "id": 4,
