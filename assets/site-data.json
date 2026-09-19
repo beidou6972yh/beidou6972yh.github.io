@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T20:25:48+08:00",
+ "generated_at": "2026-09-20T00:13:20+08:00",
  "profile": {
   "name": "任昱衡",
   "en_name": "Yuheng Ren",
@@ -1213,6 +1213,24 @@
    "details": "",
    "sort_order": 23,
    "created_at": "2026-08-11T20:40:37+08:00"
+  },
+  {
+   "id": 38,
+   "section": "社会兼职",
+   "date": "2025–2026",
+   "title": "Elsevier 期刊同行评议人",
+   "details": "Finance Research Letters ×4、Telematics and Informatics ×1，共 5 次（据 ORCID 同行评议记录）",
+   "sort_order": 24,
+   "created_at": "2026-09-20T00:12:43+08:00"
+  },
+  {
+   "id": 39,
+   "section": "社会兼职",
+   "date": "—",
+   "title": "中国电子商务协会 · 电子商务研究院副院长",
+   "details": "据 ORCID 任职记录；中国知网《学者科研成果检索报告》第 15/16 条单位标注亦为「中国电子商务协会电子商务研究院」",
+   "sort_order": 25,
+   "created_at": "2026-09-20T00:12:43+08:00"
   }
  ],
  "projects_research": [
@@ -1543,6 +1561,17 @@
  ],
  "publications": [
   {
+   "title": "A temporal-spectral dual-stream anti-noise bearing fault diagnosis model based on adaptive mode decomposition",
+   "authors": "Lingbo Li、Liyuan Ge、Jingyi Zhu、Weijun Jin、Yuheng Ren",
+   "venue": "Scientific Reports (Nature Portfolio) · 2026, 16(1): 26113",
+   "year": 2026,
+   "year_raw": null,
+   "doi": "10.1038/s41598-026-55697-1",
+   "url": "https://www.nature.com/articles/s41598-026-55697-1",
+   "type": "publication",
+   "category": "cat-publication"
+  },
+  {
    "title": "Knowledge Platform Evaluation System for the Industrial Internet V1.0（面向产业互联网的知识平台评价系统 V1.0）",
    "authors": "任昱衡、邱洋",
    "venue": "软件著作权登记号 2025SR1209443",
@@ -1669,7 +1698,7 @@
    "venue": "文献与数据学报 · AMI核心",
    "year": 2025,
    "year_raw": "2025-04-11",
-   "doi": "查看原文",
+   "doi": null,
    "url": "https://wxysjxb.ajcass.com/Admin/UploadFile/Issue/201902190001/2025/3/20250331031523WU_FILE_0.pdf",
    "type": "publication",
    "category": "cat-publication"
@@ -1691,7 +1720,7 @@
    "venue": "中国工业报·理论版 · 报纸理论文章",
    "year": 2025,
    "year_raw": "2025-10-13",
-   "doi": "查看原文",
+   "doi": null,
    "url": "https://dzb.cinn.cn/zggyb/html/2025-10/13/content_13_119758.htm",
    "type": "publication",
    "category": "cat-publication"
@@ -2852,6 +2881,17 @@
    "category": "cat-book"
   },
   {
+   "title": "微信公众号运营全攻略",
+   "authors": "任昱衡",
+   "venue": "电子工业出版社",
+   "year": 2017,
+   "year_raw": null,
+   "doi": null,
+   "url": null,
+   "type": "book",
+   "category": "cat-book"
+  },
+  {
    "title": "One Hundred Experts on County Economies and Industrial Development（百名专家破百难——县域经济与产业发展）",
    "authors": "倪光南（院士）、李京文（院士）、沈昌祥（院士）、任昱衡（执行主编）、贾晋、米传民",
    "venue": "光明日报出版社",
@@ -2872,6 +2912,39 @@
    "url": "https://doi.org/10.16633/j.cnki.1672-7746.2017.12.012",
    "type": "publication",
    "category": "cat-publication"
+  },
+  {
+   "title": "众筹模式",
+   "authors": "任昱衡",
+   "venue": "广东经济出版社",
+   "year": 2016,
+   "year_raw": null,
+   "doi": null,
+   "url": null,
+   "type": "book",
+   "category": "cat-book"
+  },
+  {
+   "title": "大数据营销从入门到精通",
+   "authors": "任昱衡",
+   "venue": "清华大学出版社",
+   "year": 2016,
+   "year_raw": null,
+   "doi": null,
+   "url": null,
+   "type": "book",
+   "category": "cat-book"
+  },
+  {
+   "title": "微商：12招教你玩转微营销",
+   "authors": "任昱衡",
+   "venue": "清华大学出版社",
+   "year": 2016,
+   "year_raw": null,
+   "doi": null,
+   "url": null,
+   "type": "book",
+   "category": "cat-book"
   },
   {
    "title": "Starting a Company from Scratch（从零开始学开公司）",
@@ -2960,6 +3033,28 @@
    "url": "https://doi.org/10.16525/j.cnki.14-1362/n.2015.16.04",
    "type": "publication",
    "category": "cat-publication"
+  },
+  {
+   "title": "中文版Dreamweaver CC+Flash CC+Photoshop CC网页设计标准教程",
+   "authors": "任昱衡",
+   "venue": "中国铁道出版社",
+   "year": 2014,
+   "year_raw": null,
+   "doi": null,
+   "url": null,
+   "type": "book",
+   "category": "cat-book"
+  },
+  {
+   "title": "网站开发非常之旅：HTML+CSS网页设计详解",
+   "authors": "任昱衡",
+   "venue": "清华大学出版社",
+   "year": 2013,
+   "year_raw": null,
+   "doi": null,
+   "url": null,
+   "type": "book",
+   "category": "cat-book"
   },
   {
    "title": "JAVA Programming Compendium（JAVA 编程兵书）",
@@ -3052,7 +3147,7 @@
   {
    "title": "基于Web Services的中船集团电子采购平台开发",
    "authors": "任昱衡",
-   "venue": "复旦大学 · 学位论文",
+   "venue": "复旦大学 · 硕士学位论文",
    "year": 2010,
    "year_raw": "2010",
    "doi": null,
@@ -3125,72 +3220,6 @@
    "url": null,
    "type": "publication",
    "category": "cat-publication"
-  },
-  {
-   "title": "HTML+CSS网页设计详解",
-   "authors": "任昱衡",
-   "venue": "清华大学出版社",
-   "year": null,
-   "year_raw": null,
-   "doi": null,
-   "url": null,
-   "type": "book",
-   "category": "cat-book"
-  },
-  {
-   "title": "中文版Dreamweaver CC+Flash CC+Photoshop CC网页设计标准教程",
-   "authors": "任昱衡",
-   "venue": "中国铁道出版社",
-   "year": null,
-   "year_raw": null,
-   "doi": null,
-   "url": null,
-   "type": "book",
-   "category": "cat-book"
-  },
-  {
-   "title": "众筹模式",
-   "authors": "任昱衡",
-   "venue": "广东经济出版社",
-   "year": null,
-   "year_raw": null,
-   "doi": null,
-   "url": null,
-   "type": "book",
-   "category": "cat-book"
-  },
-  {
-   "title": "大数据营销从入门到精通",
-   "authors": "任昱衡",
-   "venue": "清华大学出版社",
-   "year": null,
-   "year_raw": null,
-   "doi": null,
-   "url": null,
-   "type": "book",
-   "category": "cat-book"
-  },
-  {
-   "title": "微信公众号运营全攻略",
-   "authors": "任昱衡",
-   "venue": "电子工业出版社",
-   "year": null,
-   "year_raw": null,
-   "doi": null,
-   "url": null,
-   "type": "book",
-   "category": "cat-book"
-  },
-  {
-   "title": "微商",
-   "authors": "任昱衡",
-   "venue": "清华大学出版社",
-   "year": null,
-   "year_raw": null,
-   "doi": null,
-   "url": null,
-   "type": "book",
-   "category": "cat-book"
   }
  ],
  "honors": [
@@ -3397,7 +3426,7 @@
    "awarded_at": "2024",
    "description": "获奖项目：基于数据驱动的数实一体化泛家居产业互联网生态平台 · 任昱衡排名第1",
    "created_at": "2026-08-11T20:40:37+08:00",
-   "details_json": "[\"获奖项目：基于数据驱动的数实一体化泛家居产业互联网生态平台 · 任昱衡排名第1\", \"任昱衡、王学东、王宗跃、王佳昊、魏华、潘孝贞、王湛、郭伟鹏、李进华、苏锦河、杨帆、陈志永、李昱帆、倪一铭、董姗姗\"]",
+   "details_json": "[\"获奖项目：基于数据驱动的数实一体化泛家居产业互联网生态平台 · 任昱衡排名第1\", \"任昱衡、王学东、王宗跃、王佳昊、魏华、潘孝贞、王湛、郭伟鹏、李进华、苏锦河、杨帆、陈志永、卢凡、倪一铭、董姗姗\"]",
    "awarded_at_raw": "2024",
    "section": "荣誉",
    "date_raw": "2024"
@@ -3503,7 +3532,7 @@
    "published_at": "2026-04-25",
    "active": 1,
    "created_at": "2026-08-11T20:40:37+08:00",
-   "url": "https://www.kunluiot.com/page1000089?article_id=312",
+   "url": "https://www.kunluiot.com/page94?article_id=312",
    "source": "中国生产力学会 · 鲲鹭科技发布",
    "media_type": "机构报道",
    "type": "机构报道"
@@ -3516,7 +3545,7 @@
    "published_at": "2026-04-25",
    "active": 1,
    "created_at": "2026-08-11T20:40:37+08:00",
-   "url": "https://www.kunluiot.com/page1000089?article_id=311",
+   "url": "https://www.kunluiot.com/page94?article_id=311",
    "source": "中国技术经济学会 · 鲲鹭科技发布",
    "media_type": "机构报道",
    "type": "机构报道"
@@ -3555,7 +3584,7 @@
    "published_at": "2025-03-10",
    "active": 1,
    "created_at": "2026-08-11T20:40:37+08:00",
-   "url": "https://k.sina.cn/article_7857201856_1d45362c001901mbti.html",
+   "url": "https://dzb.cinn.cn/zggyb/html/2025-03/10/content_15_117895.htm",
    "source": "中国工业报",
    "media_type": "行业媒体",
    "type": "行业媒体"
@@ -3633,7 +3662,7 @@
    "published_at": "2023-05-06",
    "active": 1,
    "created_at": "2026-08-11T20:40:37+08:00",
-   "url": "https://www.newsdata.uestc.edu.cn/?n=UestcNews.Front.DocumentV2.ArticlePage&Id=79910",
+   "url": "https://news.uestc.edu.cn/info/1005/7909.htm",
    "source": "电子科技大学",
    "media_type": "机构报道",
    "type": "机构报道"
@@ -3711,7 +3740,7 @@
    "published_at": "2017-12-20",
    "active": 1,
    "created_at": "2026-08-11T20:40:37+08:00",
-   "url": "https://v.china.com.cn/finance/2017-12/20/content_42002661.htm",
+   "url": "http://v.china.com.cn/finance/2017-12/20/content_42002661.htm",
    "source": "中国网",
    "media_type": "活动报道",
    "type": "活动报道"

@@ -118,87 +118,6 @@
     return p;
   }
 
-  /* ---------- 外部链接修正（2026-09-19 链接体检发现；数据改不动时在前端兜底） ----------
-   * 只修**技术性错误**（页面路径变更 / 协议与证书问题）；内容已失效的（域名无解析、404、校内限定）
-   * 一律不在此造替代，交哥哥决定换源或删除。
-   * 证据：
-   *  · 鲲鹭官网改版：page1000089 整页 404，文章已移到 page94（article_id 不变，实测 200 且标题与站内条目一致）
-   *  · v.china.com.cn:443 的证书是别人的（CN=www.baishan.com / *.dianping.com）⇒ 浏览器会报证书错误；http 实测 200
-   */
-  var URL_FIX = {
-    "https://www.kunluiot.com/page1000089?article_id=311": "https://www.kunluiot.com/page94?article_id=311",
-    "https://www.kunluiot.com/page1000089?article_id=312": "https://www.kunluiot.com/page94?article_id=312",
-    "https://v.china.com.cn/finance/2017-12/20/content_42002661.htm": "http://v.china.com.cn/finance/2017-12/20/content_42002661.htm",
-    // 2026-09-19 补：失效报道换公开源（哥哥要求"从网上另外找"）
-    //  · 电子科大那条：原 newsdata.uestc.edu.cn 带/不带 www 都 403「仅限校内，请通过校园网或 VPN」⇒ 换成成电新闻网公开页（标题逐字一致，正文含任昱衡）
-    "https://www.newsdata.uestc.edu.cn/?n=UestcNews.Front.DocumentV2.ArticlePage&Id=79910": "https://news.uestc.edu.cn/info/1005/7909.htm",
-    //  · 中国工业报那条：原新浪转载已删文 ⇒ 换回《中国工业报》数字报原文（第15版·行知·理论，2025-03-10，署名任昱衡）
-    "https://k.sina.cn/article_7857201856_1d45362c001901mbti.html": "https://dzb.cinn.cn/zggyb/html/2025-03/10/content_15_117895.htm"
-  };
-  function fixUrl(u) { return URL_FIX[String(u == null ? "" : u).trim()] || u; }
-
-  /* ---------- 内容更正清单（2026-09-19 核对所得；DB 更正前在前端兜底） ----------
-   * 每条都必须有权威出处，并注明"DB 更正后应删除本条目"。
-   * · 中国服务业科技创新奖一等奖（第十六届 · 一等奖 · 序号 57）完成人名单：
-   *   官方公告（中国商业联合会 2024-12-25 发布，附件 1《全国服务业科技创新奖获奖名单》）
-   *   为「任昱衡、王学东、…、陈志永、卢凡、倪一铭、董姗姗」，
-   *   站内数据误写为「李昱帆」（站内另有李昱帆，系房地产方向论文作者，属两人名混用）⇒ 更正。
-   *   出处：https://www.cgcc.org.cn/tzgg/2/53495.html （附件 .doc 已存档 快照/获奖名单证据-20260919/） */
-  var DATA_FIX = [
-    ["陈志永、李昱帆、倪一铭", "陈志永、卢凡、倪一铭"]
-  ];
-  function fixText(v) {
-    var t = String(v == null ? "" : v);
-    for (var i = 0; i < DATA_FIX.length; i++) t = t.split(DATA_FIX[i][0]).join(DATA_FIX[i][1]);
-    return t;
-  }
-
-  /* ---------- 年份补录（2026-09-19 著作版本核实所得；DB 补录后应删除本表） ----------
-   * 由来：6 本著作在库中 year 为空 ⇒ 前台年份徽章空白、排序被当成最旧。
-   * 年份来源：版权页 CIP / 当当按 ISBN 检索 / 孔夫子条目 三源交叉（见 成果核对报告 第十九节）。
-   * 均为「第 1 版」，未发现第 2 版/修订版。 */
-  var YEAR_FIX = {
-    "HTML+CSS网页设计详解": "2013",
-    "中文版Dreamweaver CC+Flash CC+Photoshop CC网页设计标准教程": "2014",
-    "众筹模式": "2016",
-    "大数据营销从入门到精通": "2016",
-    "微信公众号运营全攻略": "2017",
-    "微商": "2016",
-    "A Detailed Guide to HTML+CSS Web Design": "2013",
-    "Standard Course on Web Design with Chinese Versions of Dreamweaver CC, Flash CC and Photoshop CC": "2014",
-    "The Crowdfunding Model": "2016",
-    "Big Data Marketing from Beginner to Mastery": "2016",
-    "A Complete Guide to Operating a WeChat Official Account": "2017",
-    "WeChat Business": "2016"
-  };
-  function yearOf(p) {
-    var y = p && (p.year_raw || p.year);
-    if (y) return y;
-    var t = String((p && p.title) || "").trim();
-    for (var k in YEAR_FIX) if (t === k || t.indexOf(k) > -1) return YEAR_FIX[k];
-    return "";
-  }
-
-  /* ---------- 书名补全（2026-09-19 著作版本核实所得；DB 补全后应删除本表） ----------
-   * 《HTML+CSS网页设计详解》应带丛书名「网站开发非常之旅」；《微商》副题为「12招教你玩转微营销」。
-   * 来源：版权页 CIP / 当当按 ISBN 检索 / 孔夫子条目（见 成果核对报告 第十九节）。 */
-  var TITLE_FIX = {
-    "HTML+CSS网页设计详解": "网站开发非常之旅：HTML+CSS网页设计详解",
-    "微商": "微商：12招教你玩转微营销"
-  };
-  function titleOf(p) {
-    var t = String((p && p.title) || "");
-    return TITLE_FIX[t] || t;
-  }
-
-  /* ---------- 出处补正（2026-09-19 知网报告核对所得；DB 补录后应删除本表） ----------
-   * 复旦那条是**硕士**学位论文（知网报告：复旦大学·硕士·2010·导师赵卫东），
-   * 站点原写「复旦大学 · 学位论文」不含级别，补明以示与博士区分。 */
-  var VENUE_FIX = {
-    "基于Web Services的中船集团电子采购平台开发": "复旦大学 · 硕士学位论文"
-  };
-  function venueOf(p) { return VENUE_FIX[String((p && p.title) || "")] || String((p && p.venue) || ""); }
-
   // ---------- publications.html：5 类成果重建 ----------
   // 修正（2026-09-19）：原实现是「只要静态页里已有 article.pub，就只同步计数、不重建」，
   // 后果是**后台新增/删除成果时页面根本不跟着变** —— 计数变成「标准（5）」而卡片还是 4 张，
@@ -222,19 +141,19 @@
   function buildPubArticle(p, type, i) {
     var art = el("article", "pub pub-row");
     art.setAttribute("data-order", String(i));
-    var ym = String(yearOf(p) || "").match(/\d{4}/);
+    var ym = String(p.year_raw || p.year || "").match(/\d{4}/);
     art.setAttribute("data-year", ym ? ym[0] : "0");
     var no = el("span", "pub-no", String(i + 1));
     no.setAttribute("aria-hidden", "true");
     art.appendChild(no);
     var body = el("div", "pub-body");
     var meta = el("div", "meta");
-    meta.appendChild(el("span", "badge badge-year", esc(yearOf(p) || "")));
+    meta.appendChild(el("span", "badge badge-year", esc(p.year_raw || p.year || "")));
     meta.appendChild(el("span", "badge badge-type", PUB_TYPE_ZH[type] || "成果"));
     body.appendChild(meta);
-    body.appendChild(el("h3", null, esc(titleOf(p))));
+    body.appendChild(el("h3", null, esc(p.title || "")));
     if (p.authors) body.appendChild(selfP("authors", p.authors));
-    if (p.venue) body.appendChild(el("p", "venue", esc(venueOf(p))));
+    if (p.venue) body.appendChild(el("p", "venue", esc(p.venue)));
     var realDoi = cleanDoi(p.doi);
     if (realDoi) {
       var dp = el("p", "doi");
@@ -436,7 +355,7 @@
         if (it.details_json) {
           try { dets = JSON.parse(it.details_json); } catch (e) { dets = [it.details_json]; }
         } else if (it.description) dets = [it.description];
-        dets.forEach(function (p) { row.appendChild(selfP(null, fixText(p))); });   // 完成人名单/排名行：先套内容更正，再做本人姓名高亮
+        dets.forEach(function (p) { row.appendChild(selfP(null, p)); });   // 完成人名单/排名行：本人姓名高亮
         tl.appendChild(row);
       });
       if (h2) h2.textContent = h2.textContent.replace(/（\d+）/, "（" + items.length + "）");
@@ -455,7 +374,7 @@
     });
     d.media.forEach(function (it) {
       var card = el("a", "record-card linked");
-      card.href = fixUrl(it.url) || "#";
+      card.href = it.url || "#";
       card.target = "_blank"; card.rel = "noreferrer";
       card.setAttribute("data-type", it.type || "");
       var meta = el("div", "card-meta");
