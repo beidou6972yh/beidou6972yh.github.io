@@ -179,6 +179,18 @@
     return "";
   }
 
+  /* ---------- 书名补全（2026-09-19 著作版本核实所得；DB 补全后应删除本表） ----------
+   * 《HTML+CSS网页设计详解》应带丛书名「网站开发非常之旅」；《微商》副题为「12招教你玩转微营销」。
+   * 来源：版权页 CIP / 当当按 ISBN 检索 / 孔夫子条目（见 成果核对报告 第十九节）。 */
+  var TITLE_FIX = {
+    "HTML+CSS网页设计详解": "网站开发非常之旅：HTML+CSS网页设计详解",
+    "微商": "微商：12招教你玩转微营销"
+  };
+  function titleOf(p) {
+    var t = String((p && p.title) || "");
+    return TITLE_FIX[t] || t;
+  }
+
   // ---------- publications.html：5 类成果重建 ----------
   // 修正（2026-09-19）：原实现是「只要静态页里已有 article.pub，就只同步计数、不重建」，
   // 后果是**后台新增/删除成果时页面根本不跟着变** —— 计数变成「标准（5）」而卡片还是 4 张，
@@ -212,7 +224,7 @@
     meta.appendChild(el("span", "badge badge-year", esc(yearOf(p) || "")));
     meta.appendChild(el("span", "badge badge-type", PUB_TYPE_ZH[type] || "成果"));
     body.appendChild(meta);
-    body.appendChild(el("h3", null, esc(p.title || "")));
+    body.appendChild(el("h3", null, esc(titleOf(p))));
     if (p.authors) body.appendChild(selfP("authors", p.authors));
     if (p.venue) body.appendChild(el("p", "venue", esc(p.venue)));
     var realDoi = cleanDoi(p.doi);

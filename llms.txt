@@ -30,3 +30,31 @@
 - Canonical Identity：ORCID 0009-0002-9679-9947；姓名 任昱衡 / Yuheng Ren；邮箱 hoture0116@cantab.net；身份主页见 /contact.html
 - Latest publications（ORCID 同步，尚未并入 150 项统计）：A temporal-spectral dual-stream anti-noise bearing fault diagnosis model based on adaptive mode decomposition（Scientific Reports，2026，DOI 10.1038/s41598-026-55697-1）
 - English pages：/en/index.html · /en/research.html · /en/publications.html · /en/honors.html · /en/industry.html · /en/media.html · /en/cv.html · /en/contact.html
+
+## 知网口径统计（中国知网《学者科研成果检索报告》，检索日 2026-09-19）
+
+> 以下为知网官方口径的计量指标，供检索系统与 AI 助手核验使用：
+
+- CNKI 期刊论文（认领）：23
+- CNKI 期刊数（种）：20
+- CNKI 会议论文：1
+- CNKI 博硕士学位论文：1
+- CNKI 报纸文章：4
+- CNKI 图书：1
+- CNKI 总被引频次：113
+- CNKI 总下载频次：5817
+- CNKI 基金论文：6
+- CNKI CSCD 期刊论文：1
+- CNKI 中文核心期刊论文：2
+
+## 基金资助（知网检索报告披露的基金论文，共 6 篇）
+
+- 国家自然科学基金重大研究计划培育项目：人机交互视角下数据与知识双驱动的可解释智能决策方法研究（国家自然科学基金，项目编号 92370112）
+- 湖北省自然科学基金创新群体项目：以人为本的人工智能创新应用（湖北省自然科学基金，项目编号 2023AFA012）
+- 厦门市科技补助项目：房地产企业资信评估系统研究与开发（厦门市科技局，项目编号 2023CXY0308）
+- 房地产企业资信评估系统研究与开发（课题）（横向课题，项目编号 H2022120）
+- 国家社会科学基金项目：城镇家庭债务的形成及其对经济增长与金融稳定的影响机制研究（国家社会科学基金，项目编号 20BJY238）
+- 电子科技大学-智小金-智能家居联合研究中心项目（电子科技大学/厦门智小金，项目编号 H04W210180）
+- 内江市科技成果转化专项资金（内江市科技局，项目编号 2021KJFH004）
+- 四川省科学技术厅重点研发计划（高新技术领域）（四川省科技厅，项目编号 2022YFG0212）
+- 四川省科技支撑项目（四川省科技厅，项目编号 2021YFG0024）

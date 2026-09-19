@@ -208,6 +208,18 @@
     return "";
   }
 
+  /* ---------- 书名补全（2026-09-19 著作版本核实所得；DB 补全后应删除本表） ----------
+   * 《HTML+CSS网页设计详解》应带丛书名「网站开发非常之旅」；《微商》副题为「12招教你玩转微营销」。
+   * 来源：版权页 CIP / 当当按 ISBN 检索 / 孔夫子条目（见 成果核对报告 第十九节）。 */
+  var TITLE_FIX = {
+    "HTML+CSS网页设计详解": "网站开发非常之旅：HTML+CSS网页设计详解",
+    "微商": "微商：12招教你玩转微营销"
+  };
+  function titleOf(p) {
+    var t = String((p && p.title) || "");
+    return TITLE_FIX[t] || t;
+  }
+
   function setCount(h2, n) {
     if (!h2) return;
     h2.textContent = h2.textContent.replace(/\(\d+\)/, "(" + n + ")");
@@ -266,7 +278,7 @@
         meta.appendChild(el("span", "badge badge-year", yearOf(p)));
         meta.appendChild(el("span", "badge badge-type", TYPE_EN[s.type] || "Item"));
         art.appendChild(meta);
-        art.appendChild(el("h3", null, tk("pub", p, "title").value));
+        art.appendChild(el("h3", null, TITLE_FIX[p.title] || tk("pub", p, "title").value));
         if (p.authors) art.appendChild(selfP("authors", tk("pub", p, "authors").value));
         if (p.venue) art.appendChild(el("p", "venue", tk("pub", p, "venue").value));
         var realDoi = cleanDoi(p.doi);
