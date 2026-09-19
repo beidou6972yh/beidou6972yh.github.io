@@ -628,3 +628,11 @@ main > .section:nth-child(even) { background: var(--surface-2); }
 /* 代表作网格（内容层 GEO）：不复用 .grid-3，避免与「研究方向」渲染选择器冲突 */
 .featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media (max-width:860px){.featured-grid{grid-template-columns:1fr}}
+
+/* 本页导航（内容层可读性：长页不再靠滚） */
+.page-toc{margin:14px 0 26px;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);font-size:var(--fs-small);line-height:2}
+.page-toc .toc-label{color:var(--muted);margin-right:8px;font-weight:700}
+.page-toc a{color:var(--primary);text-decoration:none;border-bottom:1px solid transparent}
+.page-toc a:hover{border-bottom-color:var(--accent)}
+h2[id],section[id]{scroll-margin-top:92px}
+@media (max-width:640px){.page-toc{font-size:.86rem}}
