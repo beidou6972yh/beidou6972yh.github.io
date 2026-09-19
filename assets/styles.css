@@ -12,7 +12,7 @@
   --accent-soft: #d8b876;
   --ink: #1c2b3a;            /* 正文深墨 */
   --ink-soft: #45556a;
-  --muted: #6b7686;
+  --muted: #5d6875;        /* 文字灰：对比度 >4.5:1（2026-09-20） */
   --bg: #fbfaf7;             /* 暖纸白 */
   --surface: #ffffff;
   --surface-2: #f4f1ea;
@@ -640,3 +640,16 @@ h2[id],section[id]{scroll-margin-top:92px}
 /* 正文行宽（内容层可读性）：中文舒适区约 25–40 字/行，避免 1120px 容器下每行近 70 字 */
 .pub, .tl-item, .record-body, .media-card { max-width: 46em; }
 @media (max-width: 860px){ .pub, .tl-item, .record-body, .media-card { max-width: none; } }
+
+/* 文字可访问性（2026-09-20，据旺旺审计）：小字不用低对比金色 */
+.eyebrow, .tl-item .date, .kv dt, .stat .label { color: var(--accent-text); }
+
+/* 正文行宽与字号（内容层可读性）：中文舒适区约 25–42 字/行 */
+.note, .sub, .pub h3, .pub .authors, .pub .venue, .contact-list .v, .card p, .key-facts li, .dir-def { max-width: 46em; }
+@media (max-width: 860px){
+  .note, .sub, .pub h3, .pub .authors, .pub .venue, .contact-list .v, .card p, .key-facts li, .dir-def { max-width: none; }
+}
+@media (max-width: 640px){
+  :root { --fs-small: .92rem; }               /* 14px → 14.7px：移动端小字不再过小 */
+  .tl-item p, .card p { font-size: .95rem; line-height: 1.75; }
+}
