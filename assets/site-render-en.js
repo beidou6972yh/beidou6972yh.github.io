@@ -157,7 +157,12 @@
   var URL_FIX = {
     "https://www.kunluiot.com/page1000089?article_id=311": "https://www.kunluiot.com/page94?article_id=311",
     "https://www.kunluiot.com/page1000089?article_id=312": "https://www.kunluiot.com/page94?article_id=312",
-    "https://v.china.com.cn/finance/2017-12/20/content_42002661.htm": "http://v.china.com.cn/finance/2017-12/20/content_42002661.htm"
+    "https://v.china.com.cn/finance/2017-12/20/content_42002661.htm": "http://v.china.com.cn/finance/2017-12/20/content_42002661.htm",
+    // 2026-09-19 补：失效报道换公开源（哥哥要求"从网上另外找"）
+    //  · 电子科大那条：原 newsdata.uestc.edu.cn 带/不带 www 都 403「仅限校内，请通过校园网或 VPN」⇒ 换成成电新闻网公开页（标题逐字一致，正文含任昱衡）
+    "https://www.newsdata.uestc.edu.cn/?n=UestcNews.Front.DocumentV2.ArticlePage&Id=79910": "https://news.uestc.edu.cn/info/1005/7909.htm",
+    //  · 中国工业报那条：原新浪转载已删文 ⇒ 换回《中国工业报》数字报原文（第15版·行知·理论，2025-03-10，署名任昱衡）
+    "https://k.sina.cn/article_7857201856_1d45362c001901mbti.html": "https://dzb.cinn.cn/zggyb/html/2025-03/10/content_15_117895.htm"
   };
   function fixUrl(u) { return URL_FIX[String(u == null ? "" : u).trim()] || u; }
 
