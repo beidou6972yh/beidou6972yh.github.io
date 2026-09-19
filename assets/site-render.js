@@ -436,11 +436,20 @@
   // ---------- research.html：核心方向卡片重建 ----------
   function renderDirections(d) {
     if (!d.research_directions || !d.research_directions.length) return;
-    var grids = document.querySelectorAll(".grid-3");
-    if (!grids.length) return;
-    var grid = grids[0];
-    // 仅当该 grid 内是方向卡片（含 .idx）才重建
-    if (!grid.querySelector(".idx")) return;
+    // 2026-09-20 加固：原来盲取第一个 .grid-3，只要里面含 .idx 就重建 ——
+    //   结果把成果页新加的「代表作」区块（当时也用 .grid-3 + .idx）灌成了 7 个研究方向卡片。
+    //   现在按「显式标记 → id → 带 .idx 且未被占用」三级定位，并显式排除非方向容器。
+    var grid = document.querySelector('[data-render="directions"]')
+            || document.getElementById("research-grid")
+            || null;
+    if (!grid) {
+      var cands = document.querySelectorAll(".grid-3");
+      for (var ci = 0; ci < cands.length; ci++) {
+        if (cands[ci].hasAttribute("data-render") || cands[ci].classList.contains("featured-grid")) continue;
+        if (cands[ci].querySelector(".idx")) { grid = cands[ci]; break; }
+      }
+    }
+    if (!grid || !grid.querySelector(".idx")) return;
     grid.innerHTML = "";
     d.research_directions.forEach(function (dir) {
       var card = el("article", "card");

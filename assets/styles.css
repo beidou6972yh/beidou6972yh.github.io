@@ -624,3 +624,7 @@ main > .section:nth-child(even) { background: var(--surface-2); }
 
 /* 方向定义段（内容层 GEO：让每个研究方向都有可摘录的定义句） */
 .dir-def{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:var(--fs-small);line-height:1.75;color:var(--ink-soft);max-width:64ch}
+
+/* 代表作网格（内容层 GEO）：不复用 .grid-3，避免与「研究方向」渲染选择器冲突 */
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:860px){.featured-grid{grid-template-columns:1fr}}
