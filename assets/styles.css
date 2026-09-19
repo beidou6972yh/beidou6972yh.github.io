@@ -614,3 +614,13 @@ main > .section:nth-child(even) { background: var(--surface-2); }
 .footer-updated{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:10px}
 .footer-updated p{margin:0;font-size:13px;line-height:1.7;color:#aebccb;max-width:64ch}
 @media (max-width:640px){.footer-updated p{font-size:12.5px}}
+
+/* 关键数据块（2026-09-20 内容层 GEO）：首屏可摘录的量化事实 */
+.key-facts{list-style:none;margin:0 0 1.2rem;padding:0;max-width:64ch;text-align:left}
+.key-facts li{position:relative;padding:4px 0 4px 18px;font-size:var(--fs-small);line-height:1.75;color:var(--ink-soft)}
+.key-facts li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.key-facts strong{color:var(--primary)}
+@media (max-width:640px){.key-facts li{font-size:.92rem}}
+
+/* 方向定义段（内容层 GEO：让每个研究方向都有可摘录的定义句） */
+.dir-def{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:var(--fs-small);line-height:1.75;color:var(--ink-soft);max-width:64ch}
