@@ -607,3 +607,10 @@ main > .section:nth-child(even) { background: var(--surface-2); }
 .grant-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: .7rem .95rem; }
 .grant-list li strong { display: block; font-weight: 650; color: var(--primary); }
 .grant-list .grant-meta { color: var(--muted); font-size: var(--fs-small); }
+
+/* 内容层可读性（2026-09-20）：回到顶部 + 更新/口径行 */
+.to-top{display:inline-block;margin:18px auto 0;padding:8px 16px;border:1px solid var(--line,#d8dee6);border-radius:999px;font-size:14px;text-decoration:none;color:inherit;opacity:.75}
+.to-top:hover{opacity:1}
+.footer-updated{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:10px}
+.footer-updated p{margin:0;font-size:13px;line-height:1.7;color:#aebccb;max-width:64ch}
+@media (max-width:640px){.footer-updated p{font-size:12.5px}}
