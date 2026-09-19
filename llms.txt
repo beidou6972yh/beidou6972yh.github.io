@@ -9,7 +9,7 @@
 ## 主要页面
 - [首页](http://ryh.ceces.cn:9000/)：站点概览与身份信息
 - [研究方向](http://ryh.ceces.cn:9000/research.html)：政府与公共科研资助项目、核心研究方向
-- [论文与著作](http://ryh.ceces.cn:9000/publications.html)：150 条成果明细（论文/专利/软著/著作/标准）
+- [论文与著作](http://ryh.ceces.cn:9000/publications.html)：151 条成果明细（论文/专利/软著/著作/标准）
 - [荣誉与资格](http://ryh.ceces.cn:9000/honors.html)：荣誉 14 项、任职资格 9 项
 - [产业与产学研](http://ryh.ceces.cn:9000/industry.html)：企业任职与产学研合作
 - [公开报道与活动](http://ryh.ceces.cn:9000/media.html)：公开报道与活动 22 项
@@ -28,7 +28,7 @@
 - Research & Works：7 大研究方向（数字经济与数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生等）；论文、专利、软著、著作与标准共 151 项（/publications.html）
 - Honors & Public Records：荣誉与任职 23 项、公开报道与活动 22 项（/honors.html、/media.html）
 - Canonical Identity：ORCID 0009-0002-9679-9947；姓名 任昱衡 / Yuheng Ren；邮箱 hoture0116@cantab.net；身份主页见 /contact.html
-- Latest publications（ORCID 同步，尚未并入 150 项统计）：A temporal-spectral dual-stream anti-noise bearing fault diagnosis model based on adaptive mode decomposition（Scientific Reports，2026，DOI 10.1038/s41598-026-55697-1）
+- Latest publication（已并入 151 条统计）：A temporal-spectral dual-stream anti-noise bearing fault diagnosis model based on adaptive mode decomposition（Scientific Reports，2026，DOI 10.1038/s41598-026-55697-1）
 - English pages：/en/index.html · /en/research.html · /en/publications.html · /en/honors.html · /en/industry.html · /en/media.html · /en/cv.html · /en/contact.html
 
 ## 知网口径统计（中国知网《学者科研成果检索报告》，检索日 2026-09-19）
