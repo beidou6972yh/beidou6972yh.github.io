@@ -569,3 +569,21 @@ main > .section:nth-child(even) { background: var(--surface-2); }
 @media (max-width: 640px) {
   .pager-info { margin-left: 0; width: 100%; }
 }
+
+/* ==========================================================================
+   本人姓名高亮 —— 哥哥 2026-09-19 定规
+   用途：成果页（.pub .authors）的作者名单、荣誉页完成人名单/排名行里，把本人姓名标出来。
+   规格：显眼「底纹」+ 加粗；**不使用红色**、**不在人名外加方框/圆圈**（无 border / 无 outline）。
+   实现：只加底色与字重，姓名后紧跟的 *（通讯作者标记）留在高亮之外。
+   ========================================================================== */
+.self-name {
+  background-color: #ffe08a;      /* 暖金底纹（与站点古铜金强调色同族，不用红色） */
+  color: #4a3405;                 /* 深棕字，保证在金底上的对比度 */
+  font-weight: 800;
+  padding: 0 .16em;
+  border-radius: .18em;           /* 只做底纹圆角，不描边、不画框 */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.tl-item .self-name { padding: 0 .18em; }
+@media print { .self-name { background-color: #f2e2b0; color: #000; } }

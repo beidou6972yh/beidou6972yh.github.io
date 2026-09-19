@@ -41,62 +41,153 @@
     return n;
   }
 
-  function esc(s) { return s == null ? "" : String(s); }
+  /* 数据里存在 HTML 实体（实测：&amp; 、&#x27;）——烘焙页是浏览器解码后显示，
+     而 textContent 会把实体**原样显示**出来（"Trend &amp; Influencing"）。
+     ⇒ 统一在此解码，保证「重建后的文本」与「烘焙页的文本」逐字一致。 */
+  var ENT = { "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#39;": "'", "&#x27;": "'", "&apos;": "'", "&nbsp;": " " };
+  function decodeEntities(v) {
+    return String(v == null ? "" : v)
+      .replace(/&(lt|gt|quot|#39|#x27|apos|nbsp);/gi, function (m) { return ENT[m.toLowerCase()] || m; })
+      .replace(/&amp;/g, "&");   // 放最后，避免二次解码
+  }
+  function esc(s) { return s == null ? "" : decodeEntities(s); }
+
+  /* ---------- 本人姓名高亮（哥哥 2026-09-19 定规） ----------
+   * 用途：成果页的作者名单、荣誉页的完成人名单/排名里，把本人姓名标出来。
+   * 规格（哥哥原话）：用显眼的颜色或底纹 + 加粗，**不要用红色**、**人名外加方框/圆圈**。
+   * ⇒ 这里只加一个 class（底色 + 加粗由 styles.css 的 .self-name 决定），不加边框、不改红。
+   * 覆盖写法：中文「任昱衡」；英文 Ren Yuheng / Yuheng Ren / Ren, Yuheng（大小写不敏感）。
+   * 加粗与底纹都落在姓名本身，姓名后的 * （通讯作者标记）留在高亮之外。 */
+  var SELF_NAME_RE = /(任昱衡|Ren,?\s+Yuheng|Yuheng\s+Ren)/gi;
+  function selfNameFrag(text) {
+    var s = esc(text == null ? "" : text);
+    var frag = document.createDocumentFragment();
+    if (!s) return frag;
+    var last = 0, m;
+    SELF_NAME_RE.lastIndex = 0;
+    while ((m = SELF_NAME_RE.exec(s)) !== null) {
+      if (!m[0]) { SELF_NAME_RE.lastIndex++; continue; }
+      if (m.index > last) frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+      frag.appendChild(el("span", "self-name", m[0]));
+      last = m.index + m[0].length;
+    }
+    if (last < s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+    return frag;
+  }
+  /** 造 <p>（class 可空），文本里的本人姓名已高亮 */
+  function selfP(cls, text) {
+    var p = el("p", cls, null);
+    p.appendChild(selfNameFrag(text));
+    return p;
+  }
 
   // ---------- publications.html：5 类成果重建 ----------
+  // 修正（2026-09-19）：原实现是「只要静态页里已有 article.pub，就只同步计数、不重建」，
+  // 后果是**后台新增/删除成果时页面根本不跟着变** —— 计数变成「标准（5）」而卡片还是 4 张，
+  // 页面自相矛盾。现改为「先比对，只在真的变了才重建」：
+  //   · 比对用「空白归一化后的标题集合」。**不能按位置比**：实测烘焙顺序与数据顺序本就不一致
+  //     （且有一处仅差一个双空格），按位置比会在基线上就误判成漂移。
+  //   · 集合相等 ⇒ 原样保留（零风险；线上绝大多数情况走这条，行为与从前一致）。
+  //   · 集合不等 ⇒ 重建该分类。重建必须生成与页面 prepare() **同构**的 DOM
+  //     （article.pub.pub-row > span.pub-no + div.pub-body），否则左侧连续序号会丢。
+  //   · 重建后调用该分类既有 pager 的 reset()：pager 的 activeItems() 是实时查 DOM 的，
+  //     条目换了只需重渲染，**不需要重新初始化**（避免重复挂载分页控件）。
+  var PUB_CATS = {
+    "cat-publication": "publication", "cat-patent": "patent",
+    "cat-software": "software", "cat-book": "book", "cat-standard": "standard",
+  };
+  var PUB_TYPE_ZH = { publication: "论文", patent: "专利", software: "软著", book: "著作", standard: "标准" };
+
+  function normTitle(s) { return decodeEntities(s).replace(/\s+/g, " ").trim(); }
+
+  /** 造一个与页面 prepare() 产物同构的条目 */
+  function buildPubArticle(p, type, i) {
+    var art = el("article", "pub pub-row");
+    art.setAttribute("data-order", String(i));
+    var ym = String(p.year_raw || p.year || "").match(/\d{4}/);
+    art.setAttribute("data-year", ym ? ym[0] : "0");
+    var no = el("span", "pub-no", String(i + 1));
+    no.setAttribute("aria-hidden", "true");
+    art.appendChild(no);
+    var body = el("div", "pub-body");
+    var meta = el("div", "meta");
+    meta.appendChild(el("span", "badge badge-year", esc(p.year_raw || p.year || "")));
+    meta.appendChild(el("span", "badge badge-type", PUB_TYPE_ZH[type] || "成果"));
+    body.appendChild(meta);
+    body.appendChild(el("h3", null, esc(p.title || "")));
+    if (p.authors) body.appendChild(selfP("authors", p.authors));
+    if (p.venue) body.appendChild(el("p", "venue", esc(p.venue)));
+    if (p.doi) {
+      var dp = el("p", "doi");
+      var a = el("a", null, "DOI " + esc(p.doi) + " ↗");
+      a.href = p.url || ("https://doi.org/" + esc(p.doi));
+      a.target = "_blank"; a.rel = "noopener";
+      dp.appendChild(a);
+      body.appendChild(dp);
+    }
+    art.appendChild(body);
+    return art;
+  }
+
+  /** 「当前显示：X 共 N 条」由页面内联脚本的闭包维护，外部调不到 ⇒ 触发它自己的刷新路径 */
+  function syncPubCounter(sec) {
+    var counter = document.getElementById("pub-count");
+    if (!counter) return;
+    var sorter = document.getElementById("pub-sort");
+    if (sorter) {
+      // 派发它自己的 change ⇒ 页面会重跑 applySort + reindex + pager.render + refreshCount
+      try { sorter.dispatchEvent(new Event("change")); } catch (e) { /* 忽略 */ }
+      return;
+    }
+    if (sec.hidden) return;
+    var h2 = sec.querySelector("h2");
+    var name = h2 ? (h2.textContent || "").replace(/（.*/, "") : "当前类别";
+    counter.textContent = "当前显示：" + name + " 共 " + sec.querySelectorAll("article.pub").length + " 条";
+  }
+
   function renderPublications(d) {
     if (!d.publications || !d.publications.length) return;
-    var CATS = {
-      "cat-publication": "publication", "cat-patent": "patent",
-      "cat-software": "software", "cat-book": "book", "cat-standard": "standard",
-    };
-    var TYPE_ZH = { publication: "论文", patent: "专利", software: "软著", book: "著作", standard: "标准" };
-    Object.keys(CATS).forEach(function (secId) {
+    Object.keys(PUB_CATS).forEach(function (secId) {
       var sec = document.getElementById(secId);
       if (!sec) return;
       var box = sec.querySelector(".container");
       if (!box) return;
-      var type = CATS[secId];
+      var type = PUB_CATS[secId];
       var items = d.publications.filter(function (p) {
         return (p.type || "publication") === type || (p.category || "") === secId;
       });
       if (!items.length) return;
-      // 渐进增强：静态页面已含真实 article（导入时生成），直接保留并仅同步计数，
-      // 避免「清空重建」在重建后不跑 prepare / 中途出错时导致内容丢失变空白。
-      if (box.querySelectorAll("article.pub").length) {
-        var h2s = box.querySelector("h2");
-        if (h2s) h2s.textContent = h2s.textContent.replace(/（\d+）/, "（" + items.length + "）");
+      var h2 = box.querySelector("h2");
+      var baked = box.querySelectorAll("article.pub");
+
+      // ---- 漂移判定：归一化标题集合是否一致 ----
+      var bakedSet = {};
+      Array.prototype.forEach.call(baked, function (a) {
+        var t = a.querySelector("h3");
+        bakedSet[normTitle(t ? t.textContent : "")] = 1;
+      });
+      var drift = baked.length !== items.length;
+      if (!drift) {
+        for (var k = 0; k < items.length; k++) {
+          if (!bakedSet[normTitle(items[k].title)]) { drift = true; break; }
+        }
+      }
+      if (!drift) {
+        // 没变 ⇒ 保持原样（含页面 prepare() 已做的包装），只同步计数
+        if (h2) h2.textContent = h2.textContent.replace(/（\d+）/, "（" + items.length + "）");
         return;
       }
-      // 仅当静态内容缺失时才用数据重建
-      Array.prototype.forEach.call(box.querySelectorAll("article.pub"), function (n) { n.remove(); });
-      // 更新 h2 计数
-      var h2 = box.querySelector("h2");
+
+      // ---- 真漂移 ⇒ 重建。先整段造好再一次性换掉，中途抛错则原样保留（不出现空白页）----
+      var frag = document.createDocumentFragment();
+      items.forEach(function (p, i) { frag.appendChild(buildPubArticle(p, type, i)); });
+      Array.prototype.forEach.call(baked, function (n) { n.remove(); });
+      box.appendChild(frag);
       if (h2) h2.textContent = h2.textContent.replace(/（\d+）/, "（" + items.length + "）");
-      items.forEach(function (p, i) {
-        var art = el("article", "pub");
-        var meta = el("div", "meta");
-        var by = el("span", "badge badge-year", esc(p.year_raw || p.year || ""));
-        var bt = el("span", "badge badge-type", TYPE_ZH[type] || "成果");
-        meta.appendChild(by); meta.appendChild(bt);
-        art.appendChild(meta);
-        var h3 = el("h3", null, esc(p.title || ""));
-        art.appendChild(h3);
-        if (p.authors) art.appendChild(el("p", "authors", esc(p.authors)));
-        if (p.venue) art.appendChild(el("p", "venue", esc(p.venue)));
-        if (p.doi) {
-          var dp = el("p", "doi");
-          var a = el("a", null, "DOI " + esc(p.doi) + " ↗");
-          a.href = p.url || ("https://doi.org/" + esc(p.doi));
-          a.target = "_blank"; a.rel = "noopener";
-          dp.appendChild(a);
-          art.appendChild(dp);
-        }
-        box.appendChild(art);
-      });
-      // 触发页面既有 prepare/reindex（若存在）
-      if (typeof window.pubPrepare === "function") window.pubPrepare(sec);
-      if (typeof window.pubReindex === "function") window.pubReindex(sec);
+      if (sec._pager && typeof sec._pager.reset === "function") {
+        try { sec._pager.reset(); } catch (e) { /* 分页异常不影响内容 */ }
+      }
+      syncPubCounter(sec);
     });
   }
 
@@ -217,7 +308,7 @@
         if (it.details_json) {
           try { dets = JSON.parse(it.details_json); } catch (e) { dets = [it.details_json]; }
         } else if (it.description) dets = [it.description];
-        dets.forEach(function (p) { row.appendChild(el("p", null, esc(p))); });
+        dets.forEach(function (p) { row.appendChild(selfP(null, p)); });   // 完成人名单/排名行：本人姓名高亮
         tl.appendChild(row);
       });
       if (h2) h2.textContent = h2.textContent.replace(/（\d+）/, "（" + items.length + "）");
