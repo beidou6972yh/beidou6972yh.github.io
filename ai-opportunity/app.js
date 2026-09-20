@@ -34,9 +34,9 @@ function renderQuestion(){const q=question(),last=state.history.at(-1);let input
  <h2 id="question-title">${esc(q.text)}</h2><p class="hint">${esc(q.hint||'')}</p>
  ${check?`<div class="checks" role="group" aria-label="条件状态">${[['yes',check.yes],['no',check.no],['unknown','暂不清楚']].map(([v,t])=>`<button class="chip ${a.checks[check.id]===v?'selected':''}" data-check="${v}" aria-pressed="${a.checks[check.id]===v}">${esc(t)}</button>`).join('')}</div>`:''}
  ${q.chips?`<div class="chips">${q.chips.map(t=>`<button class="chip" data-example="${esc(t)}">${esc(t)}</button>`).join('')}</div>`:''}
- <form id="answer-form"><div class="answer-box"><textarea id="answer" aria-labelledby="question-title" maxlength="5000" placeholder="像和同事聊天一样，说说您的实际情况……" rows="4">${esc(input||(check?a.notes[check.id]||'':''))}</textarea></div>
+ <form id="answer-form"><p id="voice-hint" class="voice-hint">点输入框 → 点键盘麦克风 → 直接说</p><div class="answer-box"><textarea id="answer" aria-labelledby="question-title" aria-describedby="voice-hint voice-review-hint" inputmode="text" spellcheck="true" maxlength="5000" placeholder="点这里，再用输入法语音说说您的情况；也可以打字……" rows="4">${esc(input||(check?a.notes[check.id]||'':''))}</textarea></div><p id="voice-review-hint" class="voice-review-hint">说完可修改文字，确认后再继续。</p>
  <div class="actions"><button type="button" id="attach-button" class="text-button">＋ 提供材料${state.documents.length?'（'+state.documents.length+'）':''}</button><button type="button" id="skip-button" class="text-button push">暂不清楚</button><button type="submit" class="primary" id="send-answer">${busy?'正在思考…':state.phase==='clarify'?'记录并梳理画像':'继续聊 →'}</button></div></form>
- ${state.phase==='interview'&&state.index===0?'<p class="muted" style="margin:18px 0 0;font-size:11px">一次只聊一个重点。途中可补材料、修正回答，也可以暂时跳过。</p>':''}
+ ${state.phase==='interview'&&state.index===0?'<p class="muted" style="margin:18px 0 0;font-size:11px">语音入口在您的键盘上；电脑可用系统或输入法的听写功能。</p>':''}
  </article>`;
  $('#answer-form').onsubmit=e=>{e.preventDefault();submitAnswer();};$('#skip-button').onclick=()=>submitAnswer(true);$('#attach-button').onclick=openMaterials;
  document.querySelectorAll('[data-example]').forEach(b=>b.onclick=()=>{$('#answer').value=b.dataset.example+'，';$('#answer').focus();});

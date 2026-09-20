@@ -5,19 +5,19 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="description" content="从您的岗位出发，通过引导式访谈、实际材料和透明测算，找到定制家居工作中值得落地的AI场景。">
 <title>家居 AI 机会诊断 · 从您的工作聊起</title>
-<link rel="stylesheet" href="./style.css?v=0.2.0"><script type="module" src="./app.js?v=0.2.0"></script>
+<link rel="stylesheet" href="./style.css?v=0.2.1"><script type="module" src="./app.js?v=0.2.1"></script>
 </head>
 <body>
 <header class="topbar"><a class="brand" href="./" aria-label="家居AI机会诊断首页"><span class="brand-mark" aria-hidden="true">木</span><span>家居 AI 机会诊断<small>从真实工作，找到有用的 AI</small></span></a><button id="menu-button" class="subtle" aria-label="打开工具菜单">工具 <span aria-hidden="true">☰</span></button></header>
 <main id="main">
-<div class="intro"><p class="eyebrow">定制家居 · 岗位访谈</p><h1>先聊您的工作，<br class="mobile-break">再找 AI 的用武之地。</h1><p>不用先懂 AI。一起梳理工作、看材料、算价值，<br class="desktop-break">把一个值得做的想法，聊成可执行的方案。</p></div>
+<div class="intro"><p class="eyebrow">定制家居 · 岗位访谈</p><h1>先聊您的工作，<br class="mobile-break">再找 AI 的用武之地。</h1><p>可以直接用输入法语音，说说您的工作，<br class="desktop-break">把一个值得做的想法，聊成可执行的方案。</p></div>
 <div id="demo-banner" class="notice" hidden>当前为虚构示例，所有岗位、材料和数字均为演示。<button id="exit-demo" class="text-button">返回我的访谈</button></div>
 <nav class="journey" aria-label="访谈进程"><span data-step="0">01 认识岗位</span><i></i><span data-step="1">02 了解工作</span><i></i><span data-step="2">03 找到机会</span><i></i><span data-step="3">04 一起确认</span></nav>
 <div class="session-line"><span id="mode-label">本地引导 · 无需密钥</span><span id="round-label">第 1 轮</span></div>
 <section id="workspace" aria-live="polite" aria-atomic="false"></section>
 <p id="status" class="status" role="status"></p>
 <div class="under-card"><button id="profile-button" class="text-button">查看岗位画像与访谈记录</button><button id="sources-button" class="text-button">行业知识与判断依据 ↗</button></div>
-<footer><p>覆盖需求、营销、设计、订单、制造、交付、售后及全链路审计。</p><p>材料默认只在当前页面处理。<button id="model-button" class="text-button">连接 AI 深入追问</button><span class="dot">·</span><a href="https://github.com/beidou6972yh/beidou6972yh.github.io/tree/main/ai-opportunity" target="_blank" rel="noopener">GitHub</a><span class="dot">·</span>v0.2</p></footer>
+<footer><p>覆盖需求、营销、设计、订单、制造、交付、售后及全链路审计。</p><p>材料默认只在当前页面处理。<button id="model-button" class="text-button">连接 AI 深入追问</button><span class="dot">·</span><a href="https://github.com/beidou6972yh/beidou6972yh.github.io/tree/main/ai-opportunity" target="_blank" rel="noopener">GitHub</a><span class="dot">·</span>v0.2.1</p></footer>
 </main>
 <dialog id="menu-dialog"><div class="dialog-head"><h2>访谈工具</h2><button data-close class="close" aria-label="关闭">×</button></div><div class="menu-grid"><button id="save-button">保存到本机</button><button id="restore-button">继续本机访谈</button><button id="export-session">下载完整访谈 JSON</button><button id="demo-button">体验一份完整示例</button><button id="reset-button" class="danger">清空当前访谈</button></div><p class="muted">保存包含回答与材料摘录；请在自己的设备使用。密钥不保存。刷新前请先保存。</p></dialog>
 <dialog id="profile-dialog"><div class="dialog-head"><h2>我们已了解的情况</h2><button data-close class="close" aria-label="关闭">×</button></div><div id="profile-content"></div></dialog>
