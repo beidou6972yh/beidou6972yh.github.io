@@ -3,7 +3,7 @@
 > **任昱衡 — 专注数字经济与产业 AI 应用的学者（IET 会士）**。成果 151 项（论文 74、专利 32、软著 23、著作 18、标准 4）。
 
 > 任昱衡（Yuheng Ren），学术主页。内容涵盖学术成果（论文 74、专利 32、软件著作权 23、著作 18、标准 4，共 151 条）、
-> 研究方向（数字经济与数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生）、荣誉与任职、公开活动、履历与联系方式。
+> 研究方向（数字经济与数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生）、荣誉与资格、公开活动、履历与联系方式。
 > 所有内容依据 ORCID 导出、科研成果检索报告与正式知识库对账整理。
 
 ## 主要页面
@@ -31,7 +31,7 @@
 
 ## 机器可读条目
 - Research & Works：7 大研究方向（数字经济与数字生产力、人工智能安全与自主可控、产业数字化转型、数字孪生等）；论文、专利、软著、著作与标准共 151 项（/publications.html）
-- Honors & Public Records：荣誉与任职 23 项、公开报道与活动 22 项（/honors.html、/media.html）
+- Honors & Public Records：荣誉与资格 23 项、公开报道与活动 22 项（/honors.html、/media.html）
 - Canonical Identity：ORCID 0009-0002-9679-9947；姓名 任昱衡 / Yuheng Ren；邮箱 hoture0116@cantab.net；身份主页见 /contact.html
 - Latest publication（已并入 151 条统计）：A temporal-spectral dual-stream anti-noise bearing fault diagnosis model based on adaptive mode decomposition（Scientific Reports，2026，DOI 10.1038/s41598-026-55697-1）
 - English pages：/en/index.html · /en/research.html · /en/publications.html · /en/honors.html · /en/industry.html · /en/media.html · /en/cv.html · /en/contact.html

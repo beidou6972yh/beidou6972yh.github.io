@@ -132,6 +132,10 @@ h3 { font-size: var(--fs-h3); margin: 0 0 .4rem; }
 .hero h1 { font-size: var(--fs-display); margin: 0 0 .35rem; }
 .hero .role { font-size: 1.15rem; color: var(--primary); font-weight: 600; margin: 0 0 .8rem; }
 .hero .lede { color: var(--ink-soft); max-width: 60ch; margin: 0 0 1.2rem; }
+/* 与背景底纹同色的机读文字（2026-09-20 哥哥定）：留在 DOM 里供检索/AI 读取，人眼不可见。
+   hero 底＝body 的 --bg；页脚底＝--primary。两者底不同，故分上下文各配一条，勿合并。 */
+.hero .hidden-copy { color: var(--bg); }
+.site-footer .hidden-copy { color: var(--primary); }
 .hero .signal-line { color: var(--muted); font-size: var(--fs-small); margin: 0 0 1.6rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
