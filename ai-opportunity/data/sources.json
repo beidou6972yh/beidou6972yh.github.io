@@ -1,0 +1,28 @@
+[
+  {
+    "id": "clinc",
+    "title": "CLINC150 / out-of-scope evaluation",
+    "authors": "Stefan Larson et al. (2019)",
+    "url": "https://github.com/clinc/oos-eval",
+    "commit": "828f8093932c8fe6ca7936c3d2e52903b1c523de",
+    "path": "data/data_full.json",
+    "license": "CC-BY-3.0",
+    "use": "域外识别方法参考；原始域外标签仅相对原数据集，不代表家居业务域外",
+    "upstream_sha256": "36923c3705a59e08fe9c3883d8bc2dd966ef93e22cb78ac41171782a698d56e0",
+    "retrieved": "2026-09-20",
+    "modification": "仅选取训练集记录及必要字段，原文和标注未翻译或重标；添加溯源字段"
+  },
+  {
+    "id": "sgd",
+    "title": "Schema-Guided Dialogue",
+    "authors": "Abhinav Rastogi et al. / Google Research (2020)",
+    "url": "https://github.com/google-research-datasets/dstc8-schema-guided-dialogue",
+    "commit": "e852981ae34990f4358979625854259302feaa78",
+    "path": "train/dialogues_001.json",
+    "license": "CC-BY-SA-4.0",
+    "use": "保留上下文的用户对话动作参考，不把确认动作等同于业务授权",
+    "upstream_sha256": "5ce28a6e656bc88c1da29c983d243d5a81eb37de92698da3864d1cf02894ca24",
+    "retrieved": "2026-09-20",
+    "modification": "仅选取训练集记录及必要字段，原文和标注未翻译或重标；添加溯源字段"
+  }
+]

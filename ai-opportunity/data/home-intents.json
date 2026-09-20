@@ -1,0 +1,146 @@
+[
+  {
+    "id": "home-0",
+    "utterance": "我希望AI帮我核对报价",
+    "label": "goal",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-1",
+    "utterance": "每天审单太费时间",
+    "label": "pain",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-2",
+    "utterance": "我不知道AI能做什么",
+    "label": "ai-help",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-3",
+    "utterance": "我没用过AI",
+    "label": "ai-help",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-4",
+    "utterance": "不是销售，我负责审单",
+    "label": "correction",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-5",
+    "utterance": "刚才说错了，每月是200单",
+    "label": "correction",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-6",
+    "utterance": "不要自动下单",
+    "label": "boundary",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-7",
+    "utterance": "客户资料不能上传",
+    "label": "boundary",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-8",
+    "utterance": "这个数字我不确定",
+    "label": "uncertain",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-9",
+    "utterance": "先给我举个例子",
+    "label": "clarification",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-10",
+    "utterance": "可以，但只能用脱敏文件",
+    "label": "conditional",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-11",
+    "utterance": "方案不错，预算还没批",
+    "label": "conditional",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-12",
+    "utterance": "我用过AI写文案",
+    "label": "experience",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-13",
+    "utterance": "我会用API接模型",
+    "label": "experience",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-14",
+    "utterance": "不想节省人手，只想降低返工",
+    "label": "correction",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-15",
+    "utterance": "没有系统接口",
+    "label": "boundary",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-16",
+    "utterance": "还不知道谁负责复核",
+    "label": "uncertain",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  },
+  {
+    "id": "home-17",
+    "utterance": "能解释一下知识库吗",
+    "label": "clarification",
+    "source": "项目自建合成样例",
+    "license": "MIT",
+    "realUser": false
+  }
+]

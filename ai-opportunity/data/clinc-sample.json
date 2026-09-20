@@ -1,0 +1,194 @@
+[
+  {
+    "id": "clinc-train-0",
+    "source": "clinc",
+    "split": "train",
+    "index": 0,
+    "utterance": "what expression would i use to say i love you if i were an italian",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-1",
+    "source": "clinc",
+    "split": "train",
+    "index": 1,
+    "utterance": "can you tell me how to say 'i do not speak much spanish', in spanish",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-2",
+    "source": "clinc",
+    "split": "train",
+    "index": 2,
+    "utterance": "what is the equivalent of, 'life is good' in french",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-3",
+    "source": "clinc",
+    "split": "train",
+    "index": 3,
+    "utterance": "tell me how to say, 'it is a beautiful morning' in italian",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-4",
+    "source": "clinc",
+    "split": "train",
+    "index": 4,
+    "utterance": "if i were mongolian, how would i say that i am a tourist",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-5",
+    "source": "clinc",
+    "split": "train",
+    "index": 5,
+    "utterance": "how do i say 'hotel' in finnish",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-6",
+    "source": "clinc",
+    "split": "train",
+    "index": 6,
+    "utterance": "i need you to translate the sentence, 'we will be there soon' into portuguese",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-7",
+    "source": "clinc",
+    "split": "train",
+    "index": 7,
+    "utterance": "please tell me how to ask for a taxi in french",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-8",
+    "source": "clinc",
+    "split": "train",
+    "index": 8,
+    "utterance": "can you tell me how i would say, 'more bread please' in french",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-9",
+    "source": "clinc",
+    "split": "train",
+    "index": 9,
+    "utterance": "what is the correct way to say 'i am a visitor' in french",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-10",
+    "source": "clinc",
+    "split": "train",
+    "index": 10,
+    "utterance": "how would i say, 'i don't know the answer' in spanish",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-train-11",
+    "source": "clinc",
+    "split": "train",
+    "index": 11,
+    "utterance": "i would like to know the proper way to greet an adult in portuguese",
+    "label": "translate"
+  },
+  {
+    "id": "clinc-oos_train-0",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 0,
+    "utterance": "how much is an overdraft fee for bank",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-1",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 1,
+    "utterance": "why are exponents preformed before multiplication in the order of operations",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-2",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 2,
+    "utterance": "what size wipers does this car take",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-3",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 3,
+    "utterance": "where is the dipstick",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-4",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 4,
+    "utterance": "how much is 1 share of aapl",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-5",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 5,
+    "utterance": "how is glue made",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-6",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 6,
+    "utterance": "any headlines from my area",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-7",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 7,
+    "utterance": "what is the largest state in the us",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-8",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 8,
+    "utterance": "what is the current market trend",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-9",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 9,
+    "utterance": "what is the most popular airline",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-10",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 10,
+    "utterance": "what is the formula for the circumference of a circle",
+    "label": "oos"
+  },
+  {
+    "id": "clinc-oos_train-11",
+    "source": "clinc",
+    "split": "oos_train",
+    "index": 11,
+    "utterance": "what are some ways to reduce spending",
+    "label": "oos"
+  }
+]

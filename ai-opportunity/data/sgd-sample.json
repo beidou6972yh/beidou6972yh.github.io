@@ -1,0 +1,810 @@
+[
+  {
+    "id": "sgd-1_00000-0",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 0,
+    "context": "",
+    "utterance": "I am feeling hungry so I would like to find a place to eat.",
+    "actions": [
+      {
+        "act": "INFORM_INTENT",
+        "canonical_values": [
+          "FindRestaurants"
+        ],
+        "slot": "intent",
+        "values": [
+          "FindRestaurants"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-2",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 2,
+    "context": "Do you have a specific which you want the eating place to be located at?",
+    "utterance": "I would like for it to be in San Jose.",
+    "actions": [
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "San Jose"
+        ],
+        "slot": "city",
+        "values": [
+          "San Jose"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-4",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 4,
+    "context": "Is there a specific cuisine type you enjoy, such as Mexican, Italian or something else?",
+    "utterance": "I usually like eating the American type of food.",
+    "actions": [
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "American"
+        ],
+        "slot": "cuisine",
+        "values": [
+          "American"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-6",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 6,
+    "context": "I see that at 71 Saint Peter there is a good restaurant which is in San Jose.",
+    "utterance": "Can you give me the address of this restaurant.",
+    "actions": [
+      {
+        "act": "REQUEST",
+        "canonical_values": [],
+        "slot": "street_address",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-8",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 8,
+    "context": "If you want to go to this restaurant you can find it at 71 North San Pedro Street.",
+    "utterance": "Can you give me the phone number that I can contact them with?",
+    "actions": [
+      {
+        "act": "REQUEST",
+        "canonical_values": [],
+        "slot": "phone_number",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-10",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 10,
+    "context": "If you want to phone them you can at 408-971-8523.",
+    "utterance": "Is there some other restaurant which you can suggest?",
+    "actions": [
+      {
+        "act": "REQUEST_ALTS",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-12",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 12,
+    "context": "How would you like Bazille restaurant which is situated in San Jose.",
+    "utterance": "Do you have another restaurant matching my needs? For example a restaurant which is economical and is located in Palo Alto.",
+    "actions": [
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "moderate"
+        ],
+        "slot": "price_range",
+        "values": [
+          "moderate"
+        ]
+      },
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "Palo Alto"
+        ],
+        "slot": "city",
+        "values": [
+          "Palo Alto"
+        ]
+      },
+      {
+        "act": "REQUEST_ALTS",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-14",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 14,
+    "context": "I see that 7 restaurants suit to what you requested. Bird Dog seems as a good restaurant and is located in Palo Alto.",
+    "utterance": "Alright, that seems good. I would like to make a booking at this restaurant.",
+    "actions": [
+      {
+        "act": "INFORM_INTENT",
+        "canonical_values": [
+          "ReserveRestaurant"
+        ],
+        "slot": "intent",
+        "values": [
+          "ReserveRestaurant"
+        ]
+      },
+      {
+        "act": "SELECT",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-16",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 16,
+    "context": "For which time do you want the booking to be?",
+    "utterance": "I will be eating there at 11:30 am so make it for then.",
+    "actions": [
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "11:30"
+        ],
+        "slot": "time",
+        "values": [
+          "11:30 am"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-18",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 18,
+    "context": "Can you please confirm that you want to book a table for 2 at 11:30 am at the Bird Dog restaurant in Palo Alto for today.",
+    "utterance": "That suits me well. Can you tell me if they feature live music?",
+    "actions": [
+      {
+        "act": "REQUEST",
+        "canonical_values": [],
+        "slot": "has_live_music",
+        "values": []
+      },
+      {
+        "act": "AFFIRM",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-20",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 20,
+    "context": "Your booking has been made without errors, but unfortunately they do not have live music.",
+    "utterance": "Will I be able to find liquor there? Can you give me the address of their location?",
+    "actions": [
+      {
+        "act": "REQUEST",
+        "canonical_values": [],
+        "slot": "serves_alcohol",
+        "values": []
+      },
+      {
+        "act": "REQUEST",
+        "canonical_values": [],
+        "slot": "street_address",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00000-22",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00000",
+    "turn": 22,
+    "context": "The restaurant is located at 420 Ramona Street. Unfortunately they do not serve alcohol at the restaurant.",
+    "utterance": "I appreciate it very much. That would be all.",
+    "actions": [
+      {
+        "act": "THANK_YOU",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "GOODBYE",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-0",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 0,
+    "context": "",
+    "utterance": "Hi i need a help, i am very hungry, I am looking for a restaurant",
+    "actions": [
+      {
+        "act": "INFORM_INTENT",
+        "canonical_values": [
+          "FindRestaurants"
+        ],
+        "slot": "intent",
+        "values": [
+          "FindRestaurants"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-6",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 6,
+    "context": "Price range is moderate, The address is Milpitas Square",
+    "utterance": "Ok, Find me another restaurant?",
+    "actions": [
+      {
+        "act": "REQUEST_ALTS",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-8",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 8,
+    "context": "I found another restaurant for you, Aria Dining & Banquets Fine Indian Cuisine Restaurant at Milpitas",
+    "utterance": "No, suggest me another Restaurant, Some Take-out type of food will be perfect",
+    "actions": [
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "Take-out"
+        ],
+        "slot": "cuisine",
+        "values": [
+          "Take-out"
+        ]
+      },
+      {
+        "act": "REQUEST_ALTS",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-10",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 10,
+    "context": "I found 2 Restaurants, Olive garden Italian Restaurant at Milpitas",
+    "utterance": "Yes, it seems good for me",
+    "actions": [
+      {
+        "act": "SELECT",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-12",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 12,
+    "context": "shall i reserve a table here for you?",
+    "utterance": "Yes, I want it on the 11th",
+    "actions": [
+      {
+        "act": "AFFIRM_INTENT",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "2019-03-11"
+        ],
+        "slot": "date",
+        "values": [
+          "the 11th"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-16",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 16,
+    "context": "Please confirm the following details: Booking a table at Olive Garden Italian Restaurant at Milpitas on March 11th reservation time is 1:30 pm, The reservation is for 2 people",
+    "utterance": "No, time change to twelve in the afternoon for one people",
+    "actions": [
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "12:00"
+        ],
+        "slot": "time",
+        "values": [
+          "twelve in the afternoon"
+        ]
+      },
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "1"
+        ],
+        "slot": "party_size",
+        "values": [
+          "1"
+        ]
+      },
+      {
+        "act": "NEGATE",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-18",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 18,
+    "context": "Please confirm the following details: the reservation time is 12 pm, The reservation is for 1 people",
+    "utterance": "Yes",
+    "actions": [
+      {
+        "act": "AFFIRM",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-22",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 22,
+    "context": "Sorry, They don't have live music, The restaurant address is 1350 Great Mall Drive",
+    "utterance": "Thank you very much for your help",
+    "actions": [
+      {
+        "act": "THANK_YOU",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00001-24",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00001",
+    "turn": 24,
+    "context": "Shall i help you with anything else?",
+    "utterance": "No, Thanks",
+    "actions": [
+      {
+        "act": "NEGATE",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "THANK_YOU",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00002-0",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00002",
+    "turn": 0,
+    "context": "",
+    "utterance": "Help me find a good restaurant.",
+    "actions": [
+      {
+        "act": "INFORM_INTENT",
+        "canonical_values": [
+          "FindRestaurants"
+        ],
+        "slot": "intent",
+        "values": [
+          "FindRestaurants"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00002-6",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00002",
+    "turn": 6,
+    "context": "I'm sorry. They do not have live music.",
+    "utterance": "That's okay. I'd like to reserve a table for the 4th.",
+    "actions": [
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "2019-03-04"
+        ],
+        "slot": "date",
+        "values": [
+          "the 4th"
+        ]
+      },
+      {
+        "act": "INFORM_INTENT",
+        "canonical_values": [
+          "ReserveRestaurant"
+        ],
+        "slot": "intent",
+        "values": [
+          "ReserveRestaurant"
+        ]
+      },
+      {
+        "act": "SELECT",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00002-10",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00002",
+    "turn": 10,
+    "context": "Please confirm that you want to reserve a table for 2 at the Addis Restaurant in Berkeley for tomorrow at 5:15 pm.",
+    "utterance": "That's right. Do they serve alcohol? And how expensive is the place?",
+    "actions": [
+      {
+        "act": "REQUEST",
+        "canonical_values": [],
+        "slot": "serves_alcohol",
+        "values": []
+      },
+      {
+        "act": "REQUEST",
+        "canonical_values": [],
+        "slot": "price_range",
+        "values": []
+      },
+      {
+        "act": "AFFIRM",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00002-14",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00002",
+    "turn": 14,
+    "context": "Okay.Please confirm that you want to reserve a table for 2 at the Addis Restaurant in Berkeley for tomorrow at 5:30 pm.",
+    "utterance": "That's correct.",
+    "actions": [
+      {
+        "act": "AFFIRM",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00002-16",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00002",
+    "turn": 16,
+    "context": "Your table has been reserved.",
+    "utterance": "Thank you. That's all I need for now.",
+    "actions": [
+      {
+        "act": "THANK_YOU",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "GOODBYE",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00003-6",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00003",
+    "turn": 6,
+    "context": "P.f. Chang's is another nice restaurant in Palo Alto.",
+    "utterance": "Yes, that works for me.",
+    "actions": [
+      {
+        "act": "SELECT",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00003-8",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00003",
+    "turn": 8,
+    "context": "Would you like to reserve a table here?",
+    "utterance": "Yes, I want to make a reservation for one. Make it at half past 6 in the evening.",
+    "actions": [
+      {
+        "act": "AFFIRM_INTENT",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "1"
+        ],
+        "slot": "party_size",
+        "values": [
+          "1"
+        ]
+      },
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "18:30"
+        ],
+        "slot": "time",
+        "values": [
+          "half past 6 in the evening"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00003-14",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00003",
+    "turn": 14,
+    "context": "Can I help you with anything else?",
+    "utterance": "No, thank you very much.",
+    "actions": [
+      {
+        "act": "NEGATE",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "THANK_YOU",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00004-18",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00004",
+    "turn": 18,
+    "context": "Is there anything else today?",
+    "utterance": "Nope, that'll be all. Thanks!",
+    "actions": [
+      {
+        "act": "NEGATE",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "THANK_YOU",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00005-14",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00005",
+    "turn": 14,
+    "context": "Reservation made.The number is 650-588-6078 and they do serve alcohol.",
+    "utterance": "Thanks a lot",
+    "actions": [
+      {
+        "act": "THANK_YOU",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "GOODBYE",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00006-8",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00006",
+    "turn": 8,
+    "context": "Would you like a reservation?",
+    "utterance": "Yes make it for March 10th.",
+    "actions": [
+      {
+        "act": "AFFIRM_INTENT",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "2019-03-10"
+        ],
+        "slot": "date",
+        "values": [
+          "March 10th"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00008-24",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00008",
+    "turn": 24,
+    "context": "The address is 288 Main Street and No, they don't have live music either.",
+    "utterance": "Alright, Thank you.",
+    "actions": [
+      {
+        "act": "THANK_YOU",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "GOODBYE",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": "sgd-1_00009-8",
+    "source": "sgd",
+    "split": "train",
+    "dialogue_id": "1_00009",
+    "turn": 8,
+    "context": "Do you want me to reserve a table for you",
+    "utterance": "Yes, please make reservation for one people this evening 4:45",
+    "actions": [
+      {
+        "act": "AFFIRM_INTENT",
+        "canonical_values": [],
+        "slot": "",
+        "values": []
+      },
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "1"
+        ],
+        "slot": "party_size",
+        "values": [
+          "1"
+        ]
+      },
+      {
+        "act": "INFORM",
+        "canonical_values": [
+          "16:45"
+        ],
+        "slot": "time",
+        "values": [
+          "evening 4:45"
+        ]
+      }
+    ]
+  }
+]
