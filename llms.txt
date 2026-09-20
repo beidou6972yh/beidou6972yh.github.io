@@ -13,7 +13,7 @@
 - [荣誉与资格](https://beidou6972yh.github.io/honors.html)：荣誉 14 项、任职资格 9 项
 - [产业与产学研](https://beidou6972yh.github.io/industry.html)：企业任职与产学研合作
 - [公开报道与活动](https://beidou6972yh.github.io/media.html)：公开报道与活动 22 项
-- [履历](https://beidou6972yh.github.io/cv.html)：教育 6 项、任职 7 项、社会兼职 27 项
+- [履历](https://beidou6972yh.github.io/cv.html)：教育 5 项、任职 7 项、社会兼职 27 项
 - [联系](https://beidou6972yh.github.io/contact.html)：联系方式与学术身份
 
 ## 学术身份锚点
