@@ -1,0 +1,20 @@
+{
+  "name": "home-ai-opportunity",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-led AI opportunity assessment for the custom home furnishing value chain",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "start": "node server.js",
+    "vendor": "node scripts/vendor.js"
+  },
+  "dependencies": {
+    "fflate": "0.8.2",
+    "pdfjs-dist": "5.6.205"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}

@@ -1,3 +1,11 @@
+## 家居 AI 机会诊断（开源工具）
+
+**[在线使用 →](https://beidou6972yh.github.io/ai-opportunity/)** · [源码与使用说明](ai-opportunity/README.md) · [实现与评估方法](ai-opportunity/DESIGN.md)
+
+覆盖需求对接到售后的 13 个业务环节，以及全链条行为审计和经济审计。支持材料解析、场景访谈、可解释排序与收益情景，手机可直接使用。本工具的 MIT 许可仅适用于 `ai-opportunity/` 子目录。
+
+---
+
 # 任昱衡 · 学术主页（Yuheng Ren — Academic Homepage）
 
 静态站点（HTML + CSS + JS，无构建步骤）。内容数据在 `assets/site-data.json`。
